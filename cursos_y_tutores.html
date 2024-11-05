@@ -6,16 +6,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - NexCode Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cursos_tutores.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="icon" type="image/png" href="images/Mask group.svg">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <div id="navbar"></div>
-    <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-        <!-- Implementacion del main -->
+    <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center p-5">
+    <div class="container">
+        <!-- Título principal -->
+        <h1 class="text-center mb-4">Nuestros Cursos</h1>
+        
+        <!-- Cursos en filas -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36.png" alt="Curso 1">
+                    <h3>Curso de Matemática</h3>
+                    <h3>Todos los niveles</h3>
+                    <p>Lunes, Miercoles y Viernes 
+                        de 15 a 18 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36 (1).png" alt="Curso 2">
+                    <h3>Curso de Biología</h3>
+                    <h3>Todos los niveles</h3>
+                    <p>Martes de 14 a 16 hs.</p>
+                    <p>Jueves de 18 a 20 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36 (2).png" alt="Curso 3">
+                    <h3>Curso de Química</h3>
+                    <h3>Todos los niveles</h3>
+                    <p>Martes y Jueves
+                        de 15 a 18 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36 (3).png" alt="Curso 4">
+                    <h3>Curso de Álgebra</h3>
+                    <h3>Todos los niveles</h3>
+                    <p>Lunes de 10 a 12 hs.
+                        Martes de 16 a 18 hs.
+                        Jueves de 18 a 20 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36 (4).png" alt="Curso 5">
+                    <h3>Curso de Física</h3>
+                    <h3>Todos los niveles</h3>
+                    <p>Lunes de 18 a 20 hs.
+                        Martes de 18 a 20 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="course-box">
+                    <img src="images/Rectangle 36 (5).png" alt="Curso 6">
+                    <h3>Curso de Inglés</h3>
+                    <h3>Principiante e Intermedio</h3>
+                    <p>Lunes a Viernes de 14 a 18 hs.</p>
+                    <a href="#" class="btn btn-primary btn-course">Más información</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculadora -->
+        <h2 class="text-center mb-4">Calculadora de Presupuesto por Cursos</h2>
+        <div class="calculator-box mb-5">
+            <h2>Calculá cuando te costarán los cursos deseados</h2>
+            <div class="course-row">
+                <label>Curso:</label>
+                <select>
+                    <option>Matemáticas</option>
+                    <option>Inglés</option>
+                    <!-- Add other options as needed -->
+                </select>
+                            
+                <label>Nivel:</label>
+                <select>
+                    <option>Todos los Niveles</option>
+                    <option>Intermedio</option>
+                    <!-- Add other options as needed -->
+                </select>
+                
+                <label>Fecha:</label>
+                <select>
+                    <option>Miércoles 13/11/2024</option>
+                    <option>Viernes 22/11/2024</option>
+                    <!-- Add other options as needed -->
+                </select>
+
+                <label>Valor:</label>
+                <div class="value">$5799</div>
+                
+                <button class="delete-btn">X</button>
+            </div>
+
+            <div class="course-row">
+                <label>Curso:</label>
+                <select>
+                    <option>Matemáticas</option>
+                    <option>Inglés</option>
+                    <!-- Add other options as needed -->
+                </select>
+                
+                <label>Nivel:</label>
+                <select>
+                    <option>Todos los Niveles</option>
+                    <option>Intermedio</option>
+                    <!-- Add other options as needed -->
+                </select>
+                
+                <label>Fecha:</label>
+                <select>
+                    <option>Miércoles 13/11/2024</option>
+                    <option>Viernes 22/11/2024</option>
+                    <!-- Add other options as needed -->
+                </select>
+
+                <label>Valor:</label>
+                <div class="value">$9999</div>
+                
+                <button class="delete-btn">X</button>
+            </div>
+
+            <button class="add-course-btn">Añadir un nuevo curso</button>
+
+            <div class="action-buttons">
+                <button class="calculate-btn">Calcular</button>
+                <button class="reserve-btn">Ir a Reservas</button>
+            </div>
+        </div>
+        
+        <!-- Tutores -->
+        <h2 class="text-center mb-4">Nuestros Tutores</h2>
+        <div class="tutor-box mb-5">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="images/Ellipse 8.png" alt="Tutor 1" class="img-fluid mb-2" style="width: 100px;">
+                    <h4>Julio Rios</h4>
+                    <p>Licenciado en Ciencias Matemáticas y Fisíca, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/Ellipse 8 (1).png" alt="Tutor 2" class="img-fluid mb-2" style="width: 100px;">
+                    <h4>Patricio Sanchez</h4>
+                    <p>Licenciado en Ciencias Matemáticas, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/Ellipse 8 (2).png" alt="Tutor 3" class="img-fluid mb-2" style="width: 100px;">
+                    <h4>Alice Johnson</h4>
+                    <p>Licenciado en Ciencias Matemáticas, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonios -->
+        <h2 class="text-center mb-4">Testimonios</h2>
+        <div id="testimonialCarousel" class="carousel slide testimonial-box mb-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="p-4" style="border: 1px solid #ddd; border-radius: 5px;">
+                        <p>“Realicé el curso de inglés con la profe Alice y la verdad que es una genia... Estoy por anotarme a otro de los cursos para preparame para la universidad.”</p>
+                        <footer class="blockquote-footer">Juan Pérez</footer>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="p-4" style="border: 1px solid #ddd; border-radius: 5px;">
+                        <p>“Los super recomiendo! Las clases con Julio son las mejores. Volvería a hacer algún otro curso más adelante.”</p>
+                        <footer class="blockquote-footer">María González</footer>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="p-4" style="border: 1px solid #ddd; border-radius: 5px;">
+                        <p>“Graciasss por las clase, me fue muy bien en los examenes gracias a realizar los cursos con ustedes </p>
+                        <footer class="blockquote-footer">Carlos López</footer>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+    </div>
     </main>
+
     <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

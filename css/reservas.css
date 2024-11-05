@@ -1,0 +1,23 @@
+.reservation-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.class-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.class-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.class-item .btn {
+    margin-left: auto;
+}
