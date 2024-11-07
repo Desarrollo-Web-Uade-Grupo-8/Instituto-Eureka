@@ -1,0 +1,28 @@
+h2 {
+    color: #0d6efd; 
+}
+
+.accordion-button {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e3ecfb;
+    color: #333;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-body {
+    color: #555;
+    background-color: #f8f9fa;
+}
