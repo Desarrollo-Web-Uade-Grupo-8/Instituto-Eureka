@@ -1,9 +1,44 @@
+/* Estilos personalizados */
 h1 {
-    font-size: 24px;
-    color: #0d6efd;
+    color: #112D4E;
+    font-weight: bold;
 }
 
-h2 {
-    font-size: 18px;
-    color: #555;
+.card-body {
+    background-color: #DBE2EF;
+    border-radius: 5px;
+}
+
+.form{
+    background-color: #DBE2EF;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+  
+label {
+    font-weight: bold;
+    color: #112D4E;
+}
+  
+.form-group label span {
+    color: red;
+}
+  
+.btn-primary {
+    background-color: #3F72AF;
+    border: none;
+}
+  
+.btn-primary:hover {
+    background-color: #2C5D99;
+}
+  
+.card-title {
+    font-weight: bold;
+    color: #112D4E;
+}
+  
+.text-muted {
+    font-size: 0.875rem;
 }

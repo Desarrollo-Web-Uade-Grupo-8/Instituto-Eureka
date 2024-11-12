@@ -4,6 +4,7 @@
     overflow: hidden;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
 .resource-box img {
@@ -12,6 +13,10 @@
 }
 
 .resource-text {
-    background-color: #f0f0f0;
+    background-color: #112D4E;
     text-align: center;
+}
+
+.resource-text h3, p{
+    color:#ffffff
 }

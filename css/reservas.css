@@ -1,23 +1,93 @@
-.reservation-box {
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.text-center {
+    text-align: center;
+}
+
+/* Reservas Section */
+.reservas {
     padding: 20px;
-    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.class-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.reservas h1 {
+    font-size: 2rem;
+    color: #112D4E;
+    margin-bottom: 20px;
 }
 
-.class-item p {
+.clases-header {
+    background-color: #112D4E; /* Fondo azul oscuro solo para el encabezado */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.clases-header h2 {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
     margin: 0;
-    font-size: 14px;
 }
 
-.class-item .btn {
-    margin-left: auto;
+/* Clases Disponibles */
+
+.clases-disponibles {
+    background-color: #ffffff; /* Fondo blanco para el contenedor principal */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clases-disponibles h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Clase Card */
+.clase-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DBE2EF; 
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clase-card p {
+    margin: 0 5px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Reservar Button */
+.reservar-btn {
+    background-color: #112D4E;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reservar-btn:hover {
+    background-color: #3F72AF;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .clase-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .reservar-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
 }

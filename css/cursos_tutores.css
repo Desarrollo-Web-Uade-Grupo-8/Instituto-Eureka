@@ -1,25 +1,7 @@
-.course-box, .tutor-box, .calculator-box, .testimonial-box {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    text-align: center;
-    background-color: #f9f9f9;
-}
-
-
-
-
 h2 {
     text-align: center;
     color: #003366;
     margin-bottom: 20px;
-}
-
-.course-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    gap: 10px;
 }
 
 label {
@@ -37,9 +19,77 @@ select {
     color: #333;
 }
 
+
+
+.tutor-box, .testimonial-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    background-color: #DBE2EF;
+}
+
+.course-box {
+    background-color: #DBE2EF; 
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+}
+  
+.course-box img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+  
+.course-box h3 {
+    font-size: 1.5rem;
+    margin: 10px 0; 
+    text-align: center;
+    color: #112D4E;
+    font-weight: bold;
+}
+  
+.course-box p {
+    margin: 5px 0 15px 0; 
+    color: #555;
+}
+  
+.btn-course {
+    margin-top: auto; 
+    width: 100%; 
+    padding: 10px;
+    font-weight: bold;
+}
+
+.course-row {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+.calculator-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #DBE2EF;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .value {
     font-weight: bold;
     color: #003366;
+    margin-left: auto;
+    margin-right: 10px;
 }
 
 .delete-btn {
@@ -96,18 +146,72 @@ select {
     display: inline-block;
 }
 
-@media (max-width: 768px) {
-    .course-box, .tutor-box {
-        padding: 10px;
+.card {
+    background-color: #DBE2EF;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.testimonial-card p {
+    font-style: italic;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+  
+.testimonial-card h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1a2a52;
+}
+  
+.testimonial-card span {
+    display: block;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+}
+  
+.arrow {
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+  
+  .arrow:hover {
+    color: #1a2a52;
+}
+
+
+@media (max-width: 576px) {
+
+    .course-box h3 {
+        font-size: 1.1rem;
     }
 
-    .tutor-box img {
-        width: 80px;
+    .course-box p {
+        font-size: 0.85rem;
     }
 
     .btn-course {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .course-box {
+        margin-bottom: 15px;
+    }
+    .course-row select, 
+    .course-row .value,
+    .course-row .delete-btn {
+        font-size: 14px; 
+    }
+
+    .add-course-btn, .calculate-btn, .reserve-btn {
         font-size: 14px;
-        padding: 8px 12px;
+        padding: 8px 16px;
     }
 }
 

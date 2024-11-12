@@ -2,6 +2,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+    color: #112D4E;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
 .navbar-brand img {
     margin-right: 10px;
     width: 70px;

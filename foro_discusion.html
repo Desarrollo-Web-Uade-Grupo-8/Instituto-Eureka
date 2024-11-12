@@ -14,67 +14,69 @@
 <body class="d-flex flex-column min-vh-100">
     <div id="navbar"></div>
     <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-        <div class="container my-5">
-            <h1 class="text-center mb-3">Foro de Discusión</h1>
-            <h2 class="text-center text-muted mb-4">Publicá en el foro</h2>
-            
-            <form class="p-4 bg-white rounded shadow-sm mb-5">
+    <div class="container my-5">
+            <!-- Título del Foro -->
+            <h1 class="text-center mb-4">Foro de Discusión</h1>
+
+            <h3 class="text-center">Publicá en el foro</h3>
+            <div class="p-4 ">
+              <form class="form">
                 <div class="form-group">
-                    <label for="nombre">Nombre <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+                  <label for="nombre">Nombre <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="comentario">Comentario</label>
-                    <textarea class="form-control" id="comentario" rows="4" placeholder="Escribe aquí tu comentario"></textarea>
+                  <label for="comentario">Comentario <span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="comentario" rows="4" placeholder="Escribe aquí tu comentario" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="tema">Tema de foro</label>
-                    <select class="form-control" id="tema">
-                        <option>Ayuda para estudiantes</option>
-                        <!-- Puedes agregar más opciones aquí -->
-                    </select>
+                  <label for="tema-foro">Tema de foro</label>
+                  <select class="form-control" id="tema-foro">
+                    <option>Ayuda para estudiantes</option>
+                    <option>Recomendaciones</option>
+                    <option>General</option>
+                  </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Publicar Comentario</button>
-            </form>
-            
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <label for="filter" class="font-weight-bold">Filtrar por tema:</label>
-                <select class="form-control w-50" id="filter">
-                    <option>Ayuda para estudiantes</option>
-                    <!-- Puedes agregar más opciones aquí -->
-                </select>
+              </form>
             </div>
-            
-            <div class="comments-section">
-                <div class="comment p-3 bg-light rounded border mb-3 shadow-sm">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Ricardo</strong></span>
-                        <span>Tema: Ayuda para estudiantes</span>
-                    </div>
-                    <p class="mt-2 mb-1">Hola! ¿Cómo están? ¿Alguien me podrá recomendar una buena calculadora para poder cursar física en el CBC?</p>
-                    <div class="text-right text-muted small">Publicado el: 12/10/2024, 01:30:14</div>
-                </div>
-                
-                <div class="comment p-3 bg-light rounded border mb-3 shadow-sm">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Bernardino</strong></span>
-                        <span>Tema: Ayuda para estudiantes</span>
-                    </div>
-                    <p class="mt-2 mb-1">La mejor calculadora es: Casio FX-570ES PLUS</p>
-                    <div class="text-right text-muted small">Publicado el: 12/10/2024, 01:50:14</div>
-                </div>
-                
-                <div class="comment p-3 bg-light rounded border mb-3 shadow-sm">
-                    <div class="d-flex justify-content-between">
-                        <span><strong>Ana</strong></span>
-                        <span>Tema: Ayuda para estudiantes</span>
-                    </div>
-                    <p class="mt-2 mb-1">¿Alguien para estudiar química???</p>
-                    <div class="text-right text-muted small">Publicado el: 12/10/2024, 01:51:14</div>
-                </div>
+
+            <!-- Filtro por tema -->
+            <div class="mt-4">
+              <label for="filtro-tema">Filtrar por tema:</label>
+              <select class="form-control w-50" id="filtro-tema">
+                <option>Ayuda para estudiantes</option>
+                <option>Recomendaciones</option>
+                <option>General</option>
+              </select>
             </div>
-        </div>
-    
+          
+            <!-- Lista de Comentarios -->
+            <div class="mt-4">
+              <div class="card mb-3">
+                <div class="card-body bg-light">
+                  <h5 class="card-title">Ricardo <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
+                  <p class="card-text">Hola! cómo están? alguien me podría recomendar una buena calculadora para poder cursar física en el CBC?</p>
+                  <p class="text-muted">Publicado el: 12/10/2024, 01:30:14</p>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body bg-light">
+                  <h5 class="card-title">Bernardino <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
+                  <p class="card-text">La mejor calculadora es Casio FX-570ES PLUS.</p>
+                  <p class="text-muted">Publicado el: 12/10/2024, 01:30:14</p>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body bg-light">
+                  <h5 class="card-title">Ana <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
+                  <p class="card-text">Alguien para estudiar química???</p>
+                  <p class="text-muted">Publicado el: 12/10/2024, 01:55:14</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
     </main>
     <div id="footer"></div>
 
