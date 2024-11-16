@@ -65,16 +65,28 @@ select {
     width: 100%; 
     padding: 10px;
     font-weight: bold;
+    background-color: #112D4E;
+    text-decoration: none;
+    color: #fff;;
+    border-radius: 10px;
+}
+
+.btn-course:hover {
+    background-color: #081524;
+
 }
 
 .course-row {
     display: flex;
     flex-wrap: wrap; 
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     margin-bottom: 15px;
 }
 
+.select {
+    width: 200px;
+}
 
 .calculator-box {
     border: 1px solid #ddd;
@@ -88,7 +100,6 @@ select {
 .value {
     font-weight: bold;
     color: #003366;
-    margin-left: auto;
     margin-right: 10px;
 }
 
