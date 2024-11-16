@@ -196,8 +196,8 @@
                     </div>
 
                     <!-- Spinner -->
-                    <div class="modal" id="spinnerModal" >
-                        <div class="modal-content d-flex justify-content-center">
+                    <div class="modal" id="spinnerModal">
+                        <div class="modal-content d-flex justify-content-center align-items-center">
                             <h2>Procesando pago</h2>
                             <div class="spinner-border text-primary" role="status" id="spinner">
                                 <span class="visually-hidden">Loading...</span>
@@ -387,18 +387,18 @@
             const expirationDate = document.getElementById("expirationDate").value.trim();
             const errorBlockPayment = document.getElementById("error-message-patment");
             const paymentMethod = document.getElementById("paymentMethod").value;
+            console.log(paymentMethod);
+            
 
             if (!paymentMethod) {
                 errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
                 errorBlockPayment.style.display = "block";
                 return false;
             }
-            if (paymentMethod === "Tarjeta") {
-                if (!cardNumber || !cardCode || !expirationDate) {
-                    errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
-                    errorBlockPayment.style.display = "block";
-                    return false;
-                }
+            if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode || !expirationDate)) {
+                errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
+                errorBlockPayment.style.display = "block";
+                return false;
             }
 
             errorBlockPayment.style.display = "none";
