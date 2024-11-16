@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - NexCode Solutions</title>
+    <title>NexCode Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/cursos_tutores.css">
     <link rel="stylesheet" href="css/base.css">
@@ -14,207 +14,276 @@
 <body class="d-flex flex-column min-vh-100">
     <div id="navbar"></div>
     <main class="flex-grow-1 d-flex flex-column justify-content-center align-items-center p-5">
-    <div class="container">
-        <!-- Título principal -->
-        <h1 class="text-center mb-4">Nuestros Cursos</h1>
-        
-        <!-- Cursos en filas -->
-        <div class="row mb-5">
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36.png" alt="Curso 1">
-                    <h3>Curso de Matemática</h3>
-                    <h3>Todos los niveles</h3>
-                    <p>Lunes, Miercoles y Viernes </p>
-                    <p>de 15 a 18 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
+        <div class="container">
+            <!-- Título principal -->
+            <h1 class="text-center mb-4">Nuestros Cursos</h1>
+
+            <!-- Cursos en filas -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36.png" alt="Curso 1">
+                        <h3>Curso de Matemática</h3>
+                        <h3>Todos los niveles</h3>
+                        <p>Lunes, Miercoles y Viernes </p>
+                        <p>de 15 a 18 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36 (1).png" alt="Curso 2">
+                        <h3>Curso de Biología</h3>
+                        <h3>Todos los niveles</h3>
+                        <p>Martes de 14 a 16 hs.</p>
+                        <p>Jueves de 18 a 20 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36 (2).png" alt="Curso 3">
+                        <h3>Curso de Química</h3>
+                        <h3>Todos los niveles</h3>
+                        <p>Martes y Jueves</p>
+                        <p>de 15 a 18 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36 (1).png" alt="Curso 2">
-                    <h3>Curso de Biología</h3>
-                    <h3>Todos los niveles</h3>
-                    <p>Martes de 14 a 16 hs.</p>
-                    <p>Jueves de 18 a 20 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
+
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36 (3).png" alt="Curso 4">
+                        <h3>Curso de Álgebra</h3>
+                        <h3>Todos los niveles</h3>
+                        <p>Lunes de 10 a 12 hs.</p>
+                        <p>Martes de 16 a 18 hs.</p>
+                        <p>Jueves de 18 a 20 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36 (4).png" alt="Curso 5">
+                        <h3>Curso de Física</h3>
+                        <h3>Todos los niveles</h3>
+                        <p>Lunes de 18 a 20 hs.</p>
+                        <p>Martes de 18 a 20 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="course-box">
+                        <img src="images/Rectangle 36 (5).png" alt="Curso 6">
+                        <h3>Curso de Inglés</h3>
+                        <h3>Principiante e Intermedio</h3>
+                        <p>Lunes a Viernes</p>
+                        <p>de 14 a 18 hs.</p>
+                        <a href="#" class="btn-course">Más información</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36 (2).png" alt="Curso 3">
-                    <h3>Curso de Química</h3>
-                    <h3>Todos los niveles</h3>
-                    <p>Martes y Jueves</p>
-                    <p>de 15 a 18 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
+
+            <!-- Calculadora -->
+            <h1 class="text-center mb-4">Calculadora de Presupuesto por Cursos</h1>
+            <div class="calculator-box mb-5">
+                <h2>Calculá cuando te costarán los cursos deseados</h2>
+                <div id="course-container">
+                </div>
+                <div class="alert alert-danger" role="alert" id="error-message" style="display: none;"></div>
+                <button class="add-course-btn" id="add-course-btn">Añadir un nuevo curso</button>
+                <div class="action-buttons">
+                    <button class="reserve-btn" id="reserve-btn">Reservar</button>
+                    <!-- Modal de Datos de Usuario -->
+                    <div class="modal" id="userModal">
+                        <div class="modal-content">
+                            <span class="close-btn" id="closeUserModal">&times;</span>
+                            <h2>Datos de Usuario</h2>
+                            <form id="userForm">
+                                <div class="alert alert-danger" role="alert" id="error-message-user-data"
+                                    style="display: none;"></div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" placeholder="Nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="surname" class="form-label">Apellido <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="surname" placeholder="Apellido"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email <span
+                                            class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Teléfono <span
+                                            class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Teléfono" required>
+                                </div>
+                                <div class="button-container">
+                                    <button type="submit" class="btn btn-secondary"
+                                        id="cancelUserModal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        id="continueToPayment">Continuar</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Modal de Selección de Medio de Pago -->
+                    <div class="modal" id="paymentModal">
+                        <div class="modal-content">
+                            <span class="close-btn" id="closePaymentModal">&times;</span>
+                            <h2>Selecciona el Medio de Pago</h2>
+                            <div class="alert alert-danger" role="alert" id="error-message-patment"
+                                style="display: none;"></div>
+                            <select id="paymentMethod" onchange="showPaymentForm()">
+                                <option value="">Selecciona un medio de pago</option>
+                                <option value="tarjeta">Tarjeta</option>
+                                <option value="transferencia">Transferencia</option>
+                                <option value="efectivo">Efectivo</option>
+                            </select>
+
+                            <!-- Formulario de Tarjeta -->
+                            <div id="cardForm" style="display:none;">
+                                <div class="mb-3 cardType">
+                                    <label for="cardType">Tipo de Tarjeta:</label>
+                                    <select id="cardType">
+                                        <option value="visa">Visa</option>
+                                        <option value="mastercard">Mastercard</option>
+                                        <option value="amex">American Express</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Número de Tarjeta:<span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="cardNumber"
+                                        placeholder="Número de tarjeta" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="securityCode" class="form-label">Código de Seguridad:<span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="securityCode"
+                                        placeholder="Código de Seguridad" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="expirationDate" class="form-label">Fecha de Vencimiento:<span
+                                            class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="expirationDate"
+                                        placeholder="Fecha de Vencimiento" required>
+                                </div>
+                            </div>
+
+                            <!-- Mensajes para Transferencia y Efectivo -->
+                            <div id="paymentMessage" style="display:none; margin-top: 15px;">
+                                <div class="alert alert-info" role="alert">
+                                    *Recibirás un email con los datos para realizar el pago.
+                                </div>
+                            </div>
+
+                            <div class="button-container">
+                                <button type="submit" class="btn btn-secondary" id="goBackToUser">Volver Atrás</button>
+                                <button type="submit" class="btn btn-primary" id="finalizeReservation">Abonar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spinner -->
+                    <div class="modal" id="spinnerModal" >
+                        <div class="modal-content d-flex justify-content-center">
+                            <h2>Procesando pago</h2>
+                            <div class="spinner-border text-primary" role="status" id="spinner">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="successPaymentModal">
+                        <div class="modal-content">
+                            <div class="alert alert-success" role="alert">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <h2 id="total-cost">Costo total: $0</h2>
+            </div>
+
+            <!-- Tutores -->
+            <h2 class="text-center mb-4"><b>Nuestros Tutores</b></h2>
+            <div class="tutor-box mb-5 card">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <img src="images/Ellipse 8.png" alt="Tutor 1" class="img-fluid mb-4" style="width: 200px;">
+                        <h4 class="mb-3"><b>Julio Rios</b></h4>
+                        <p class="text-center p-3">Licenciado en Ciencias Matemáticas y Fisíca, profesor con más de 20
+                            años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/Ellipse 8 (1).png" alt="Tutor 2" class="img-fluid mb-4" style="width: 200px;">
+                        <h4 class="mb-3"><b>Patricio Sanchez</b></h4>
+                        <p class="text-center p-3">Licenciado en Ciencias Matemáticas, profesor con más de 20 años de
+                            experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/Ellipse 8 (2).png" alt="Tutor 3" class="img-fluid mb-4" style="width: 200px;">
+                        <h4 class="mb-3"><b>Alice Johnson</b></h4>
+                        <p class="text-center p-3">Licenciado en Ciencias Matemáticas, profesor con más de 20 años de
+                            experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="container text-center my-5">
+                <h2 class="mb-4"><b>Testimonios</b></h2>
+                <div class="row justify-content-center align-items-center position-relative">
+                    <!-- Botón de flecha izquierda -->
+                    <button class="arrow left-arrow position-absolute" style="left: 0;">&#x276E;</button>
+
+                    <!-- Tarjeta de Testimonio 1 -->
+                    <div class="col-md-4">
+                        <div class="card p-4">
+                            <p>“Realicé el curso de inglés con la profe Alice y la verdad que es una genia... Estoy por
+                                anotarme a otro de los cursos para prepararme para la universidad.”</p>
+                            <h3 class="mt-3"><b>Lautaro Mendoza</b></h3>
+                            <span>Estudiante</span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de Testimonio 2 -->
+                    <div class="col-md-4">
+                        <div class="card p-4">
+                            <p>“Los super recomiendo! Las clases con Julio son las mejores. Volvería a hacer algún otro
+                                curso más adelante.”</p>
+                            <h3 class="mt-3"><b>Juana López</b></h3>
+                            <span>Estudiante</span>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de Testimonio 3 -->
+                    <div class="col-md-4">
+                        <div class="card p-4">
+                            <p>“Graciasss por las clase, me fue muy bien en los examenes gracias a realizar los cursos
+                                con ustedes”</p>
+                            <h3 class="mt-3"><b>Pablo Casas</b></h3>
+                            <span>Estudiante</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón de flecha derecha -->
+                    <button class="arrow right-arrow position-absolute" style="right: 0;">&#x276F;</button>
+                </div>
+            </div>
+
         </div>
-        
-        <div class="row mb-5">
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36 (3).png" alt="Curso 4">
-                    <h3>Curso de Álgebra</h3>
-                    <h3>Todos los niveles</h3>
-                    <p>Lunes de 10 a 12 hs.</p>
-                    <p>Martes de 16 a 18 hs.</p>
-                    <p>Jueves de 18 a 20 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36 (4).png" alt="Curso 5">
-                    <h3>Curso de Física</h3>
-                    <h3>Todos los niveles</h3>
-                    <p>Lunes de 18 a 20 hs.</p>
-                    <p>Martes de 18 a 20 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="course-box">
-                    <img src="images/Rectangle 36 (5).png" alt="Curso 6">
-                    <h3>Curso de Inglés</h3>
-                    <h3>Principiante e Intermedio</h3>
-                    <p>Lunes a Viernes</p>
-                    <p>de 14 a 18 hs.</p>
-                    <a href="#" class="btn-course">Más información</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Calculadora -->
-        <h1 class="text-center mb-4">Calculadora de Presupuesto por Cursos</h1>
-        <div class="calculator-box mb-5">
-            <h2>Calculá cuando te costarán los cursos deseados</h2>
-            <div class="course-row">
-                <label>Curso:</label>
-                <select class="select">
-                    <option>Matemáticas</option>
-                    <option>Inglés</option>
-                    <!-- Add other options as needed -->
-                </select>
-                            
-                <label>Nivel:</label>
-                <select class="select">
-                    <option>Todos los Niveles</option>
-                    <option>Intermedio</option>
-                    <!-- Add other options as needed -->
-                </select>
-                
-                <label>Fecha:</label>
-                <select class="select">
-                    <option>Miércoles 13/11/2024</option>
-                    <option>Viernes 22/11/2024</option>
-                    <!-- Add other options as needed -->
-                </select>
-
-                <label>Valor:</label>
-                <div class="value">$5799</div>
-                
-                <button class="delete-btn">X</button>
-            </div>
-
-            <div class="course-row">
-                <label>Curso:</label>
-                <select class="select">
-                    <option>Matemáticas</option>
-                    <option>Inglés</option>
-                    <!-- Add other options as needed -->
-                </select>
-                
-                <label >Nivel:</label>
-                <select class="select">
-                    <option>Todos los Niveles</option>
-                    <option>Intermedio</option>
-                    <!-- Add other options as needed -->
-                </select>
-                
-                <label>Fecha:</label>
-                <select class="select">
-                    <option>Miércoles 13/11/2024</option>
-                    <option>Viernes 22/11/2024</option>
-                    <!-- Add other options as needed -->
-                </select>
-
-                <label>Valor:</label>
-                <div class="value">$9999</div>
-                
-                <button class="delete-btn">X</button>
-            </div>
-
-            <button class="add-course-btn">Añadir un nuevo curso</button>
-
-            <div class="action-buttons">
-                <button class="calculate-btn">Calcular</button>
-                <button class="reserve-btn">Ir a Reservas</button>
-            </div>
-        </div>
-        
-        <!-- Tutores -->
-        <h2 class="text-center mb-4"><b>Nuestros Tutores</b></h2>
-        <div class="tutor-box mb-5 card">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <img src="images/Ellipse 8.png" alt="Tutor 1" class="img-fluid mb-4" style="width: 200px;">
-                    <h4 class= "mb-3"><b>Julio Rios</b></h4>
-                    <p class="text-center p-3">Licenciado en Ciencias Matemáticas y Fisíca, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/Ellipse 8 (1).png" alt="Tutor 2" class="img-fluid mb-4" style="width: 200px;">
-                    <h4 class= "mb-3"><b>Patricio Sanchez</b></h4>
-                    <p class="text-center p-3">Licenciado en Ciencias Matemáticas, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/Ellipse 8 (2).png" alt="Tutor 3" class="img-fluid mb-4" style="width: 200px;">
-                    <h4 class= "mb-3"><b>Alice Johnson</b></h4>
-                    <p class="text-center p-3">Licenciado en Ciencias Matemáticas, profesor con más de 20 años de experiencia dando clases para alumnos de todas las edades y todos los niveles.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container text-center my-5">
-            <h2 class="mb-4"><b>Testimonios</b></h2>
-            <div class="row justify-content-center align-items-center position-relative">
-              <!-- Botón de flecha izquierda -->
-              <button class="arrow left-arrow position-absolute" style="left: 0;">&#x276E;</button>
-              
-              <!-- Tarjeta de Testimonio 1 -->
-              <div class="col-md-4">
-                <div class="card p-4">
-                  <p>“Realicé el curso de inglés con la profe Alice y la verdad que es una genia... Estoy por anotarme a otro de los cursos para prepararme para la universidad.”</p>
-                  <h3 class="mt-3"><b>Lautaro Mendoza</b></h3>
-                  <span>Estudiante</span>
-                </div>
-              </div>
-              
-              <!-- Tarjeta de Testimonio 2 -->
-              <div class="col-md-4">
-                <div class="card p-4">
-                  <p>“Los super recomiendo! Las clases con Julio son las mejores. Volvería a hacer algún otro curso más adelante.”</p>
-                  <h3 class="mt-3"><b>Juana López</b></h3>
-                  <span>Estudiante</span>
-                </div>
-              </div>
-              
-              <!-- Tarjeta de Testimonio 3 -->
-              <div class="col-md-4">
-                <div class="card p-4">
-                  <p>“Graciasss por las clase, me fue muy bien en los examenes gracias a realizar los cursos con ustedes”</p>
-                  <h3 class="mt-3"><b>Pablo Casas</b></h3>
-                  <span>Estudiante</span>
-                </div>
-              </div>
-        
-              <!-- Botón de flecha derecha -->
-              <button class="arrow right-arrow position-absolute" style="right: 0;">&#x276F;</button>
-            </div>
-          </div>
-
-    </div>
     </main>
 
     <div id="footer"></div>
@@ -222,15 +291,150 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        const courseCosts = {
+            "Matemáticas": 5799,
+            "Inglés": 4999,
+            "Física": 6499,
+            "Química": 3999,
+            "Álgebra": 4999,
+            "Biología": 3999
+        };
+
+        const courseDates = {
+            "Matemáticas": ["Jueves 12/12/2024"],
+            "Inglés": ["Viernes 08/12/2024"],
+            "Álgebra": ["Lunes 02/12/2024"],
+            "Química": ["Viernes 22/11/2024"],
+            "Biología": ["Martes 26/11/2024"],
+            "Física": ["Miércoles 04/12/2024"]
+        };
+
+        const niveles = ["Primario", "Secundario", "CBC", "Universitario"]
+        const nivelesIngles = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+        const courseContainer = document.getElementById("course-container");
+        const addCourseBtn = document.getElementById("add-course-btn");
+        const totalCostDisplay = document.getElementById("total-cost");
+        const reserveBtn = document.getElementById("reserve-btn");
+        const userModal = document.getElementById("userModal");
+        const closeUserModal = document.getElementById("closeUserModal");
+        const continueToPayment = document.getElementById("continueToPayment");
+        const cancelUserModal = document.getElementById("cancelUserModal");
+        const paymentModal = document.getElementById("paymentModal");
+        const closePaymentModal = document.getElementById("closePaymentModal");
+        const paymentMethod = document.getElementById("paymentMethod");
+        const cardForm = document.getElementById("cardForm");
+        const paymentMessage = document.getElementById("paymentMessage");
+        const goBackToUser = document.getElementById("goBackToUser");
+        const finalizeReservation = document.getElementById("finalizeReservation");
+        const spinner = document.getElementById("spinnerModal");
+        const successMessage = document.getElementById("successPaymentModal");
+
+        continueToPayment.addEventListener("click", () => {
+            const name = document.getElementById("name").value.trim();
+            const surname = document.getElementById("surname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            const errorBlock = document.getElementById("error-message-user-data")
+            if (!name || !email || !phone || !surname) {
+                errorBlock.textContent = "Por favor, todos los campos deben estar completos para continuar.";
+                errorBlock.style.display = "block";
+                return false; // No continuar
+            }
+            errorBlock.style.display = "none";
+            userModal.style.display = "none";
+            paymentModal.style.display = "block";
+        })
+
+        // Abrir la ventana de datos del usuario
+        reserveBtn.addEventListener("click", () => {
+            if (!validateCourses()) {
+                event.preventDefault(); // Prevenir la acción por defecto (como enviar un formulario o pasar a otra página)
+            } else {
+                userModal.style.display = "block";
+            }
+
+        });
+
+        // Cerrar la ventana de datos del usuario
+        closeUserModal.addEventListener("click", () => {
+            userModal.style.display = "none";
+        });
+
+        // Cancelar y cerrar la ventana de datos del usuario
+        cancelUserModal.addEventListener("click", () => {
+            userModal.style.display = "none";
+        });
+
+        // Mostrar formulario según el medio de pago seleccionado
+        function showPaymentForm() {
+            const method = paymentMethod.value;
+            cardForm.style.display = (method === "tarjeta") ? "block" : "none";
+            paymentMessage.style.display = (method === "transferencia" || method === "efectivo") ? "block" : "none";
+        }
+
+        // Volver atrás a la ventana de datos del usuario
+        goBackToUser.addEventListener("click", () => {
+            paymentModal.style.display = "none";
+            userModal.style.display = "block";
+        });
+
+        // Finalizar la reserva
+        finalizeReservation.addEventListener("click", () => {
+            const cardNumber = document.getElementById("cardNumber").value.trim();
+            const cardCode = document.getElementById("securityCode").value.trim();
+            const expirationDate = document.getElementById("expirationDate").value.trim();
+            const errorBlockPayment = document.getElementById("error-message-patment");
+            const paymentMethod = document.getElementById("paymentMethod").value;
+
+            if (!paymentMethod) {
+                errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
+                errorBlockPayment.style.display = "block";
+                return false;
+            }
+            if (paymentMethod === "Tarjeta") {
+                if (!cardNumber || !cardCode || !expirationDate) {
+                    errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
+                    errorBlockPayment.style.display = "block";
+                    return false;
+                }
+            }
+
+            errorBlockPayment.style.display = "none";
+            paymentModal.style.display = "none";
+            //spinner.classList.add("show");
+            spinner.style.display = "block";
+            setTimeout(() => {
+                spinner.style.display = "none";
+
+                successMessage.style.display = "block";
+                successMessage.innerHTML = `
+                    <div class="alert alert-success" role="alert">
+                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito." : "Email enviado con éxito."}
+                    </div>
+                `;
+                // Ocultar el mensaje después de 3 segundos
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 3000);
+            }, 3000);
+        });
+
+        // Cerrar la ventana de selección de pago
+        closePaymentModal.addEventListener("click", () => {
+            paymentModal.style.display = "none";
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('navbar').innerHTML = data;
-    
+
                     const path = window.location.pathname;
                     const page = path.split("/").pop();
-                    
+
                     const pageLinks = {
                         "index.html": "link-inicio",
                         "cursos_y_tutores.html": "link-cursos",
@@ -241,17 +445,102 @@
                         "contacto.html": "link-contacto",
                         "metodo_pago.html": "link-metodo"
                     };
-                        if (pageLinks[page]) {
+                    if (pageLinks[page]) {
                         document.getElementById(pageLinks[page]).classList.add("active");
                     }
                 });
-    
+
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
         });
+
+        function createCourseRow() {
+            const row = document.createElement("div");
+            row.classList.add("course-row");
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.style.display = "none";
+            row.innerHTML = `
+                    <label>Curso:</label>
+                    <select class="select course-select">
+                        ${Object.keys(courseCosts).map(course => `<option>${course}</option>`).join("")}
+                    </select>
+                    <label>Nivel:</label>
+                    <select class="select level-select">
+                        ${niveles.map(nivel => `<option>${nivel}</option>`).join("")}
+                    </select>
+                    <label>Fecha:</label>
+                    <select class="select date-select"></select>
+                    <label>Valor:</label>
+                    <div class="value">$${courseCosts["Matemáticas"]}</div>
+                    <button class="delete-btn">X</button>
+                `;
+
+            // Ahora definimos los elementos del DOM después de haber asignado el HTML
+            const courseSelect = row.querySelector(".course-select");
+            const levelSelect = row.querySelector(".level-select");
+            const dateDisplay = row.querySelector(".date-select");
+            const valueDisplay = row.querySelector(".value");
+
+            // Inicializar el selector de fechas basándose en el curso predeterminado
+            const selectedCourse = courseSelect.value;
+            dateDisplay.innerHTML = (courseDates[selectedCourse] || []).map(date => `<option>${date}</option>`).join("");
+
+            // Añadir comportamiento al selector de curso
+            courseSelect.addEventListener("change", () => {
+                const selectedCourse = courseSelect.value;
+                levelSelect.innerHTML = selectedCourse === "Inglés" ?
+                    nivelesIngles.map(nivel => `<option>${nivel}</option>`).join("") :
+                    niveles.map(nivel => `<option>${nivel}</option>`).join("");
+
+                dateDisplay.innerHTML = (courseDates[selectedCourse] || []).map(date => `<option>${date}</option>`).join("");
+                valueDisplay.textContent = `$${courseCosts[selectedCourse] || 0}`;
+                updateTotalCost();
+            });
+
+            // Añadir funcionalidad al botón de eliminar
+            const deleteBtn = row.querySelector(".delete-btn");
+            deleteBtn.addEventListener("click", () => {
+                row.remove();
+                updateTotalCost();
+            });
+
+            courseContainer.appendChild(row);
+            updateTotalCost(); // Actualizar el total cuando se añade un curso
+        }
+
+
+        function updateTotalCost() {
+            let totalCost = 0;
+            const rows = document.querySelectorAll(".course-row");
+            rows.forEach(row => {
+                const courseSelect = row.querySelector(".course-select");
+                const selectedCourse = courseSelect.value;
+                totalCost += courseCosts[selectedCourse] || 0;
+            });
+            totalCostDisplay.textContent = `Costo total: $${totalCost}`;
+        }
+
+        function validateCourses() {
+            const courseRows = document.querySelectorAll(".course-row");
+            const errorMessage = document.getElementById("error-message");
+            if (courseRows.length === 0) {
+                errorMessage.textContent = "Por favor, agregue al menos un curso para continuar.";
+                errorMessage.style.display = "block";
+                return false; // Impedir que el usuario continúe
+            }
+            return true; // Permitir que el usuario continúe
+        }
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("delete-btn")) {
+                event.target.parentElement.remove();
+            }
+        });
+
+        addCourseBtn.addEventListener("click", createCourseRow);
     </script>
-    
+
 </body>
 
 
