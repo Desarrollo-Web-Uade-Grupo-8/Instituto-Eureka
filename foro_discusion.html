@@ -45,6 +45,7 @@
             <div class="mt-4 filtro-tema-div">
               <label for="filtro-tema">Filtrar por tema:</label>
               <select class="form-control w-50" id="filtro-tema">
+                <option>Todos</option>
                 <option>Ayuda para estudiantes</option>
                 <option>Recomendaciones</option>
                 <option>General</option>
@@ -54,7 +55,7 @@
             <!-- Lista de Comentarios -->
             <div class="container-comentarios">
               <div class="mt-4">
-                <div class="card mb-3" style="border: none;">
+                <div class="card mb-3" style="border: none;" data-tema="Ayuda para estudiantes">
                   <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between">
                       <span>Ricardo</span>
@@ -64,7 +65,7 @@
                     <p class="text-muted"><b>Publicado el:</b> 12/10/2024, 01:30:14</p>
                   </div>
                 </div>
-                <div class="card mb-3"style="border: none;">
+                <div class="card mb-3"style="border: none;" data-tema="Ayuda para estudiantes">
                   <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between flex-wrap">
                       <span>Bernardino</span>
@@ -74,7 +75,7 @@
                     <p class="text-muted"><b>Publicado el:</b> 12/10/2024, 01:30:14</p>
                   </div>
                 </div>
-                <div class="card mb-3" style="border: none;">
+                <div class="card mb-3" style="border: none;" data-tema="Ayuda para estudiantes">
                   <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between">
                       <span>Ana</span>
@@ -122,6 +123,154 @@
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
         });
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".form");
+  const comentariosContainer = document.querySelector(".container-comentarios");
+  const filtroTema = document.getElementById("filtro-tema");
+  const mensajeVacio = document.createElement("div"); // Mensaje de 'sin comentarios'
+  mensajeVacio.classList.add("mensaje-vacio");
+  mensajeVacio.textContent = "Aún no hay ningún comentario en esta sección.";
+  comentariosContainer.appendChild(mensajeVacio); // Inicialmente muestra el mensaje vacío
+  mensajeVacio.style.display = "none"; // Escondemos el mensaje inicialmente
+
+  // Cargar los comentarios almacenados en localStorage
+  cargarComentarios();
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const nombre = document.getElementById("nombre").value.trim();
+    const comentario = document.getElementById("comentario").value.trim();
+    const tema = document.getElementById("tema-foro").value;
+
+    if (nombre && comentario) {
+      const fechaActual = new Date();
+      const fechaFormateada = fechaActual.toLocaleString("es-ES", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+
+      // Crear el nuevo comentario en HTML
+      const comentarioHTML = `
+        <div class="card mb-3" style="border: none;" data-tema="${tema}">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between flex-wrap">
+              <span>${nombre}</span>
+              <small class="text-muted"><b>Tema: </b>&nbsp${tema}</small>
+            </h5>
+            <p class="card-text">${comentario}</p>
+            <p class="text-muted"><b>Publicado el:</b> ${fechaFormateada}</p>
+          </div>
+        </div>
+      `;
+
+      // Insertar el comentario en el contenedor
+      comentariosContainer.insertAdjacentHTML("beforeend", comentarioHTML);
+
+      // Crear el mensaje de éxito y añadirlo debajo del comentario
+      const mensajeExito = document.createElement("div");
+      mensajeExito.classList.add("mensaje-exito");
+      mensajeExito.textContent = "Comentario publicado con éxito!";
+      comentariosContainer.insertAdjacentElement("beforeend", mensajeExito);
+
+      // Limpiar el formulario
+      form.reset();
+
+      // Mostrar el mensaje de éxito por 3 segundos
+      setTimeout(() => {
+        mensajeExito.style.display = "none";
+      }, 3000); // El mensaje desaparece después de 3 segundos
+
+      // Almacenar el nuevo comentario en el almacenamiento local
+      guardarComentarioEnLocalStorage(nombre, comentario, tema, fechaFormateada);
+
+      // Cambiar el filtro al tema del nuevo comentario
+      filtroTema.value = tema; // Cambia el valor del filtro al tema del comentario
+
+      // Aplicar el filtro con el nuevo valor
+      aplicarFiltro(tema);
+
+      // Comprobar si el nuevo comentario es visible y desplazarse hasta él si es necesario
+      const comentarioNuevo = comentariosContainer.lastElementChild;
+      if (comentarioNuevo && comentarioNuevo.style.display !== "none") {
+        comentarioNuevo.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      alert("Por favor, completa todos los campos obligatorios.");
+    }
+  });
+
+  // Filtrar los comentarios según el tema seleccionado
+  filtroTema.addEventListener("change", function () {
+    const temaSeleccionado = filtroTema.value;
+    aplicarFiltro(temaSeleccionado);
+  });
+
+  // Función para aplicar el filtro de tema a todos los comentarios
+  function aplicarFiltro(temaSeleccionado) {
+    const comentarios = comentariosContainer.querySelectorAll(".card");
+
+    let comentariosVisibles = 0; // Contamos los comentarios visibles
+    comentarios.forEach((card) => {
+      if (temaSeleccionado === card.dataset.tema || temaSeleccionado === "Todos") {
+        card.style.display = "block";
+        comentariosVisibles++;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // Mostrar mensaje de "Aún no hay ningún comentario" si no hay comentarios visibles
+    if (comentariosVisibles === 0) {
+      mensajeVacio.style.display = "block";
+    } else {
+      mensajeVacio.style.display = "none";
+    }
+  }
+
+  // Función para guardar los comentarios en localStorage
+  function guardarComentarioEnLocalStorage(nombre, comentario, tema, fechaFormateada) {
+    const comentarioNuevo = {
+      nombre: nombre,
+      comentario: comentario,
+      tema: tema,
+      fecha: fechaFormateada
+    };
+
+    let comentariosGuardados = JSON.parse(localStorage.getItem("comentarios")) || [];
+    comentariosGuardados.push(comentarioNuevo);
+
+    // Guardar los comentarios actualizados en localStorage
+    localStorage.setItem("comentarios", JSON.stringify(comentariosGuardados));
+  }
+
+  // Función para cargar los comentarios desde localStorage
+  function cargarComentarios() {
+    let comentariosGuardados = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+    // Insertar los comentarios guardados al cargar la página
+    comentariosGuardados.forEach((comentario) => {
+      const comentarioHTML = `
+        <div class="card mb-3" style="border: none;" data-tema="${comentario.tema}">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between flex-wrap">
+              <span>${comentario.nombre}</span>
+              <small class="text-muted"><b>Tema: </b>&nbsp${comentario.tema}</small>
+            </h5>
+            <p class="card-text">${comentario.comentario}</p>
+            <p class="text-muted"><b>Publicado el:</b> ${comentario.fecha}</p>
+          </div>
+        </div>
+      `;
+      comentariosContainer.insertAdjacentHTML("beforeend", comentarioHTML);
+    });
+  }
+});
+
+
     </script>
     
 </body>
