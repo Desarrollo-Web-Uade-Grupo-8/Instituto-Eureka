@@ -19,7 +19,7 @@
             <h1 class="text-center mb-4">Foro de Discusión</h1>
 
             <h3 class="text-center">Publicá en el foro</h3>
-            <div class="p-4 ">
+            <div class="formulario-foro">
               <form class="form">
                 <div class="form-group">
                   <label for="nombre">Nombre <span class="text-danger">*</span></label>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                   <label for="comentario">Comentario <span class="text-danger">*</span></label>
-                  <textarea class="form-control" id="comentario" rows="4" placeholder="Escribe aquí tu comentario" required></textarea>
+                  <textarea class="form-control" id="comentario" rows="4" placeholder="Escribe aquí tu comentario" required style="resize: none;"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="tema-foro">Tema de foro</label>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- Filtro por tema -->
-            <div class="mt-4">
+            <div class="mt-4 filtro-tema-div">
               <label for="filtro-tema">Filtrar por tema:</label>
               <select class="form-control w-50" id="filtro-tema">
                 <option>Ayuda para estudiantes</option>
@@ -52,30 +52,41 @@
             </div>
           
             <!-- Lista de Comentarios -->
-            <div class="mt-4">
-              <div class="card mb-3">
-                <div class="card-body bg-light">
-                  <h5 class="card-title">Ricardo <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
-                  <p class="card-text">Hola! cómo están? alguien me podría recomendar una buena calculadora para poder cursar física en el CBC?</p>
-                  <p class="text-muted">Publicado el: 12/10/2024, 01:30:14</p>
+            <div class="container-comentarios">
+              <div class="mt-4">
+                <div class="card mb-3" style="border: none;">
+                  <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between">
+                      <span>Ricardo</span>
+                      <small class="text-muted"><b>Tema: </b>&nbspAyuda para estudiantes</small>
+                    </h5>
+                    <p class="card-text">Hola! cómo están? alguien me podría recomendar una buena calculadora para poder cursar física en el CBC?</p>
+                    <p class="text-muted"><b>Publicado el:</b> 12/10/2024, 01:30:14</p>
+                  </div>
                 </div>
-              </div>
-              <div class="card mb-3">
-                <div class="card-body bg-light">
-                  <h5 class="card-title">Bernardino <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
-                  <p class="card-text">La mejor calculadora es Casio FX-570ES PLUS.</p>
-                  <p class="text-muted">Publicado el: 12/10/2024, 01:30:14</p>
+                <div class="card mb-3"style="border: none;">
+                  <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between flex-wrap">
+                      <span>Bernardino</span>
+                      <small class="text-muted"><b>Tema: </b>&nbspAyuda para estudiantes</small>
+                    </h5>
+                    <p class="card-text">La mejor calculadora es Casio FX-570ES PLUS.</p>
+                    <p class="text-muted"><b>Publicado el:</b> 12/10/2024, 01:30:14</p>
+                  </div>
                 </div>
-              </div>
-              <div class="card mb-3">
-                <div class="card-body bg-light">
-                  <h5 class="card-title">Ana <small class="text-muted">Tema: Ayuda para estudiantes</small></h5>
-                  <p class="card-text">Alguien para estudiar química???</p>
-                  <p class="text-muted">Publicado el: 12/10/2024, 01:55:14</p>
+                <div class="card mb-3" style="border: none;">
+                  <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between">
+                      <span>Ana</span>
+                      <small class="text-muted"><b>Tema: </b>&nbspAyuda para estudiantes</small>
+                    </h5>
+                    <p class="card-text">Alguien para estudiar química???</p>
+                    <p class="text-muted"><b>Publicado el:</b> 12/10/2024, 01:55:14</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            </div>
     </div>
     </main>
     <div id="footer"></div>
