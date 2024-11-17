@@ -187,12 +187,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Almacenar el nuevo comentario en el almacenamiento local
       guardarComentarioEnLocalStorage(nombre, comentario, tema, fechaFormateada);
 
-      // Cambiar el filtro al tema del nuevo comentario
-      filtroTema.value = tema; // Cambia el valor del filtro al tema del comentario
-
-      // Aplicar el filtro con el nuevo valor
+      // Comprobar si el filtro está en "Todos", en ese caso no cambiar el filtro
+      if (filtroTema.value !== "Todos") {
+        // Cambiar el filtro al tema del nuevo comentario si no está en "Todos"
+        filtroTema.value = tema;
+              // Aplicar el filtro con el nuevo valor
       aplicarFiltro(tema);
 
+      }
       // Comprobar si el nuevo comentario es visible y desplazarse hasta él si es necesario
       const comentarioNuevo = comentariosContainer.lastElementChild;
       if (comentarioNuevo && comentarioNuevo.style.display !== "none") {
