@@ -179,6 +179,10 @@
                                     <input type="date" class="form-control" id="expirationDate"
                                         placeholder="Fecha de Vencimiento" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="totalToPay" class="form-label">Total a abonar:</label>
+                                    <div id="total"></div>
+                                </div>
                             </div>
 
                             <!-- Mensajes para Transferencia y Efectivo -->
@@ -329,6 +333,7 @@
         const finalizeReservation = document.getElementById("finalizeReservation");
         const spinner = document.getElementById("spinnerModal");
         const successMessage = document.getElementById("successPaymentModal");
+        const total = document.getElementById("total")
 
         continueToPayment.addEventListener("click", () => {
             const name = document.getElementById("name").value.trim();
@@ -387,8 +392,8 @@
             const expirationDate = document.getElementById("expirationDate").value.trim();
             const errorBlockPayment = document.getElementById("error-message-patment");
             const paymentMethod = document.getElementById("paymentMethod").value;
-            console.log(paymentMethod);
-            
+            console.log(totalCostDisplay);
+                     
 
             if (!paymentMethod) {
                 errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
