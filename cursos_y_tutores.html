@@ -127,7 +127,7 @@
                                     <input type="tel" class="form-control" id="phone" placeholder="Teléfono" required>
                                 </div>
                                 <div class="button-container">
-                                    <button type="submit" class="btn btn-secondary"
+                                    <button type="button" class="btn btn-secondary"
                                         id="cancelUserModal">Cancelar</button>
                                     <button type="submit" class="btn btn-primary"
                                         id="continueToPayment">Continuar</button>
@@ -336,6 +336,7 @@
         const total = document.getElementById("total")
 
         continueToPayment.addEventListener("click", () => {
+            event.preventDefault()
             const name = document.getElementById("name").value.trim();
             const surname = document.getElementById("surname").value.trim();
             const email = document.getElementById("email").value.trim();
