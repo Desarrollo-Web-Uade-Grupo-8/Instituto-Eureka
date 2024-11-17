@@ -18,16 +18,16 @@ h2 {
 
 .imagenes-medios {
     display: flex;
-    justify-content: center !important;  /* Forzamos el centrado */
+    justify-content: center !important;  
     align-items: center;
-    gap: 80px; /* Espacio entre imágenes */
-    flex-wrap: wrap; /* Permite que las imágenes se ajusten si son pocas */
+    gap: 80px; 
+    flex-wrap: wrap; 
 }
 
 .logo {
     max-height: 200px;
     max-width: 200px;
-    object-fit: contain; /* Evita que las imágenes se deformen */
+    object-fit: contain; 
 }
 
 .fw-bold {
@@ -42,6 +42,10 @@ h2 {
     }
 }
 
+.container {
+    margin-bottom: 30px;
+}
+
 
 @media (max-width: 1024px) {
     .metodo-pago {
@@ -50,7 +54,7 @@ h2 {
 
     .imagenes-medios {
         justify-content: center !important;
-        gap: 20px; /* Más espacio entre las imágenes */
+        gap: 20px;
     }
 
     .logo {
@@ -61,15 +65,14 @@ h2 {
 
 @media (max-width: 768px) {
     .metodo-pago {
-        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+        flex-direction: column; 
     }
 
     .imagenes-medios {
         justify-content: center !important;
         gap: 10px;
-        /* Esto asegura que las imágenes no se apilen en pantalla pequeña */
         flex-wrap: nowrap;
-        overflow-x: auto; /* Permite hacer scroll horizontal si hay muchas imágenes */
+        overflow-x: auto; 
     }
 
     .logo {

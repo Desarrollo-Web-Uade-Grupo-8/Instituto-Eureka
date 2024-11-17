@@ -1,5 +1,9 @@
 h2, h4 {
-    color: #0d6efd; 
+    color: #112D4E; 
+}
+
+h1 {
+    margin-bottom: 100px Imp !important;
 }
 
 .contact-item .icon-circle {
@@ -11,25 +15,85 @@ h2, h4 {
 
 .contact-item p {
     margin: 0;
-    color: #333;
+    color: #112D4E;
 }
 
 .contact-item p.fw-bold {
     margin-bottom: 2px;
-    color: #0d6efd; 
+    color: #112D4E; 
 }
 
 .form-label {
     font-weight: 500;
-    color: #333;
+    color: #112D4E;
+    
+}
+
+.form-control {
+    border-radius: 10px;
 }
 
 .btn-primary {
-    background-color: #0d6efd;
+    background-color: #3F72AF;
     border: none;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .btn-primary:hover {
-    background-color: #0b5ed7;
+    background-color: #2c507c;
+}
+
+#success-message {
+    font-size: 1.2rem;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+@media (max-width: 1000px) {
+    .btn-primary {
+        margin-bottom: 20px;
+    }
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 990px) and (min-width: 768px) {
+    .row {
+        flex-wrap: wrap; 
+    }
+
+    .col-md-4, .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-md-4 {
+        margin-bottom: 20px; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .btn-primary {
+        margin-bottom: 20px;
+    }
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 400px) { 
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
 }

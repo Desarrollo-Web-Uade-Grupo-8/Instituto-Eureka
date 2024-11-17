@@ -16,14 +16,14 @@
     <div id="navbar"></div>
     <main class="flex-grow-1 d-flex justify-content-center align-items-center">
         <div class="container my-5">
-            <h2 class="text-center fw-bold mb-4">Contacto</h2>
+            <h1 class="text-center fw-bold mb-5">Contacto</h1>
     
             <div class="row">
                 <!-- Columna izquierda: Información de contacto -->
-                <div class="col-md-4 d-flex flex-column align-items-start">
+                <div class="col-md-4 col-12 d-flex flex-column align-items-start order-2 order-md-2 order-lg-1 mb-3">
                     <div class="contact-item d-flex align-items-center mb-4">
                         <div class="text-white d-flex align-items-center justify-content-center me-3">
-                            <img src="images/Ellipse 9.png" alt="">
+                            <img class= "logo" src="images/Ellipse 9.png" alt="">
                         </div>
                         <div>
                             <p class="mb-0 fw-bold">Teléfono</p>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="contact-item d-flex align-items-center mb-4">
                         <div class="text-white d-flex align-items-center justify-content-center me-3">
-                            <img src="images/Ellipse 9 (1).png" alt="">
+                            <img  class= "logo" src ="images/Ellipse 9 (1).png" alt="">
                         </div>
                         <div>
                             <p class="mb-0 fw-bold">Email</p>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="contact-item d-flex align-items-center">
                         <div class="text-white d-flex align-items-center justify-content-center me-3">
-                            <img src="images/Ellipse 9 (2).png" alt="">
+                            <img   class= "logo" src="images/Ellipse 9 (2).png" alt="">
                         </div>
                         <div>
                             <p class="mb-0 fw-bold">Ubicación</p>
@@ -51,29 +51,32 @@
                 </div>
     
                 <!-- Columna derecha: Formulario de contacto -->
-                <div class="col-md-8">
+                <div class="col-md-8 col-12 order-1 order-md-1 order-lg-2">
                     <h4 class="text-center fw-bold mb-3">Dejanos tu consulta</h4>
                     <form>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nombre y apellido <span class="text-danger">*</span></label>
+                            <label for="name" class="form-label"><b>Nombre y apellido </b><span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="name" placeholder="Nombre y apellido" required>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                <label for="email" class="form-label"><b>Email</b><span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce un email válido">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="phone" class="form-label">Teléfono <span class="text-danger">*</span></label>
+                                <label for="phone" class="form-label"><b>Teléfono</b> <span class="text-danger">*</span></label>
                                 <input type="tel" class="form-control" id="phone" placeholder="Teléfono" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje" required></textarea>
+                            <label for="message" class="form-label"><b>Mensaje</b><span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje" required style="resize: none;"></textarea>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                        <div id="success-message" class="alert alert-success d-none mt-3" role="alert">
+                            ¡Gracias por tu consulta! Te responderemos vía email en las próximas 24 horas.
                         </div>
                     </form>
                 </div>
@@ -112,6 +115,21 @@
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
+        });
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById("email");
+            const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            if (!emailPattern.test(emailInput.value)) {
+                alert("Por favor, introduce un email válido.");
+                return;
+            }
+
+            const successMessage = document.getElementById("success-message");
+            successMessage.classList.remove("d-none");
+
+            this.reset();
         });
     </script>
     
