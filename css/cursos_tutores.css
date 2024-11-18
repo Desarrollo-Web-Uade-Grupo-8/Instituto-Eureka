@@ -259,6 +259,10 @@ button {
     position: relative;
 }
 
+a:not([href]) {
+    cursor: pointer;
+}
+
 .progress {
     width: 100%; /* O un tamaño fijo como 300px */
     height: 10px; /* Para garantizar la visibilidad de la barra */
