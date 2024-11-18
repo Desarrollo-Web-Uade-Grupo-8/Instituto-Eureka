@@ -175,35 +175,28 @@ select {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial-card p {
-    font-style: italic;
-    color: #4a4a4a;
-    margin-bottom: 1rem;
+/* Ajustar la posición de las flechas de navegación */
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
 }
 
-.testimonial-card h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #1a2a52;
+/* Mejorar visibilidad de las flechas */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(100%);
+    width: 30px;
+    height: 30px;
 }
 
-.testimonial-card span {
-    display: block;
-    font-size: 0.875rem;
-    color: #4a4a4a;
+/* Asegurar que las flechas no se superpongan a las tarjetas */
+.carousel-control-prev {
+    left: 10px; /* Ajusta este valor para mover la flecha hacia la izquierda */
 }
 
-.arrow {
-    font-size: 1.5rem;
-    color: #4a4a4a;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.arrow:hover {
-    color: #1a2a52;
+.carousel-control-next {
+    right: 10px; /* Ajusta este valor para mover la flecha hacia la derecha */
 }
 
 /* Modal básico */
@@ -328,4 +321,32 @@ a:not([href]) {
         font-size: 14px;
         padding: 8px 16px;
     }
+}
+
+.carousel-item .card {
+    margin: 10px;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.subtitulo-testimonio {
+    margin-top: 40px;
+}
+
+@media (max-width: 1000px) {
+    .carousel-item .card {
+        margin: 10px;
+        padding: 15px; 
+        min-height: 350px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .carousel-item .card {
+        margin: 10px;
+        padding: 15px; 
+        min-height: 300px;
+    }
+
 }

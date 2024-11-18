@@ -17,12 +17,13 @@
         <div class="container">
             <!-- Título principal -->
             <h1 class="text-center mb-4">Recursos</h1>
-    
+
             <!-- Boxes -->
             <div class="row g-4">
                 <!-- Recurso 1 -->
                 <div class="col-md-6">
-                    <div class="resource-box">
+                    <div class="resource-box"
+                        data-video="https://www.youtube.com/embed/VxyESk9ecTA?si=imm8KgoE7KC5efQq">
                         <img src="images/image 7.png" alt="Recurso 1" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Matemática</h3>
@@ -30,10 +31,17 @@
                         </div>
                     </div>
                 </div>
-    
+                <div id="videoModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+
                 <!-- Recurso 2 -->
                 <div class="col-md-6">
-                    <div class="resource-box">
+                    <div class="resource-box" data-video="https://www.youtube.com/embed/wxcFaTPi03Y?si=wKCQx9zZ4XEXWvLM">
                         <img src="images/image 8.png" alt="Recurso 2" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Química</h3>
@@ -41,10 +49,16 @@
                         </div>
                     </div>
                 </div>
-    
+                <div id="videoModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <!-- Recurso 3 -->
                 <div class="col-md-6">
-                    <div class="resource-box">
+                    <div class="resource-box" data-video="https://www.youtube.com/embed/XE9UXxtep6M?si=mcF83FJBh5senigU">
                         <img src="images/Imagen.png" alt="Recurso 3" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Física</h3>
@@ -52,10 +66,16 @@
                         </div>
                     </div>
                 </div>
-    
+                <div id="videoModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <!-- Recurso 4 -->
                 <div class="col-md-6">
-                    <div class="resource-box">
+                    <div class="resource-box" data-video="https://www.youtube.com/embed/jKP_wJJiovc?si=5JggHUf3lscTtsJ5">
                         <img src="images/Imagen (1).png" alt="Recurso 4" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Biología</h3>
@@ -63,10 +83,16 @@
                         </div>
                     </div>
                 </div>
-    
+                <div id="videoModal" class="modal">
+                    <div class="modal-content" >
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <!-- Recurso 5 -->
                 <div class="col-md-6">
-                    <div class="resource-box">
+                    <div class="resource-box" data-video="https://www.youtube.com/embed/dFJvNYdKGrA?si=K6aaNxeUhzDSTv-m">
                         <img src="images/Imagen (2).png" alt="Recurso 5" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Inglés</h3>
@@ -74,15 +100,27 @@
                         </div>
                     </div>
                 </div>
-    
+                <div id="videoModal" class="modal">
+                    <div class="modal-content" >
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
                 <!-- Recurso 6 -->
                 <div class="col-md-6 mb-5">
-                    <div class="resource-box">
+                    <div class="resource-box" data-video="https://www.youtube.com/embed/KoZ7EhjynOA?si=n5RBrdDn6V4rAPgC">
                         <img src="images/Imagen (3).png" alt="Recurso 6" class="img-fluid">
                         <div class="resource-text p-3">
                             <h3>Álgebra</h3>
                             <p>Magnitud, Norma o Módulo de un Vector</p>
                         </div>
+                    </div>
+                </div>
+                <div id="videoModal" class="modal">
+                    <div class="modal-content" >
+                        <span id="closeModal" class="close-btn">&times;</span>
+                        <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -93,15 +131,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        // Selecciona todos los elementos con el atributo data-video
+        const resources = document.querySelectorAll(".resource-box[data-video]");
+        const modal = document.getElementById("videoModal");
+        const videoFrame = document.getElementById("videoFrame");
+        const closeModal = document.getElementById("closeModal");
+
+        // Abre el modal con el video correspondiente
+        resources.forEach(resource => {
+            resource.addEventListener("click", () => {
+                const videoUrl = resource.getAttribute("data-video");
+                videoFrame.src = videoUrl + "?autoplay=1";
+                modal.style.display = "block";
+            });
+        });
+
+        // Cierra el modal y detiene el video
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+            videoFrame.src = ""; // Limpia el src para detener el video
+        });
+
+        // Cierra el modal al hacer clic fuera de la ventana
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                videoFrame.src = ""; // Limpia el src para detener el video
+            }
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('navbar').innerHTML = data;
-    
+
                     const path = window.location.pathname;
                     const page = path.split("/").pop();
-                    
+
                     const pageLinks = {
                         "index.html": "link-inicio",
                         "cursos_y_tutores.html": "link-cursos",
@@ -112,17 +180,17 @@
                         "contacto.html": "link-contacto",
                         "metodo_pago.html": "link-metodo"
                     };
-                        if (pageLinks[page]) {
+                    if (pageLinks[page]) {
                         document.getElementById(pageLinks[page]).classList.add("active");
                     }
                 });
-    
+
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
         });
     </script>
-    
+
 </body>
 
 

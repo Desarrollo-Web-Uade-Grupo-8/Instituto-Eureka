@@ -367,42 +367,22 @@
 
             <div class="container text-center my-5">
                 <h2 class="mb-4"><b>Testimonios</b></h2>
-                <div class="row justify-content-center align-items-center position-relative">
-                    <!-- Botón de flecha izquierda -->
-                    <button class="arrow left-arrow position-absolute" style="left: 0;">&#x276E;</button>
-
-                    <!-- Tarjeta de Testimonio 1 -->
-                    <div class="col-md-4">
-                        <div class="card p-4">
-                            <p>“Realicé el curso de inglés con la profe Alice y la verdad que es una genia... Estoy por
-                                anotarme a otro de los cursos para prepararme para la universidad.”</p>
-                            <h3 class="mt-3"><b>Lautaro Mendoza</b></h3>
-                            <span>Estudiante</span>
-                        </div>
+                <div id="testimoniosCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselItemsContainer">
+                        <!-- Los items se añadirán dinámicamente con JavaScript -->
                     </div>
 
-                    <!-- Tarjeta de Testimonio 2 -->
-                    <div class="col-md-4">
-                        <div class="card p-4">
-                            <p>“Los super recomiendo! Las clases con Julio son las mejores. Volvería a hacer algún otro
-                                curso más adelante.”</p>
-                            <h3 class="mt-3"><b>Juana López</b></h3>
-                            <span>Estudiante</span>
-                        </div>
-                    </div>
-
-                    <!-- Tarjeta de Testimonio 3 -->
-                    <div class="col-md-4">
-                        <div class="card p-4">
-                            <p>“Graciasss por las clase, me fue muy bien en los examenes gracias a realizar los cursos
-                                con ustedes”</p>
-                            <h3 class="mt-3"><b>Pablo Casas</b></h3>
-                            <span>Estudiante</span>
-                        </div>
-                    </div>
-
-                    <!-- Botón de flecha derecha -->
-                    <button class="arrow right-arrow position-absolute" style="right: 0;">&#x276F;</button>
+                    <!-- Controles de navegación (flechas) -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimoniosCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimoniosCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
 
@@ -744,6 +724,90 @@
         });
 
         addCourseBtn.addEventListener("click", createCourseRow);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+            const row = document.querySelector('.row');
+            const cards = document.querySelectorAll('.col-md-4');
+
+            let scrollAmount = 0;
+            const cardWidth = cards[0].offsetWidth + 10; // Ancho de la tarjeta + espacio
+            let maxScroll = row.scrollWidth - row.offsetWidth;
+
+            // Redimensionar: actualizar los valores
+            window.addEventListener('resize', () => {
+                scrollAmount = 0;
+                row.scrollLeft = 0;
+                maxScroll = row.scrollWidth - row.offsetWidth;
+            });
+
+            // Flecha izquierda
+            leftArrow.addEventListener('click', () => {
+                scrollAmount = Math.max(scrollAmount - cardWidth, 0);
+                row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            // Flecha derecha
+            rightArrow.addEventListener('click', () => {
+                scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll);
+                row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+            });
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lista de testimonios
+            const testimonios = [
+                { texto: "“Realicé el curso de inglés con la profe Alice y la verdad que es una genia.”", nombre: "Lautaro Mendoza" },
+                { texto: "“Los super recomiendo! Las clases con Julio son las mejores.”", nombre: "Juana López" },
+                { texto: "“Graciasss por las clase, me fue muy bien en los examenes gracias.”", nombre: "Pablo Casas" },
+                { texto: "“Curso increíble, aprendí mucho con los profesores.”", nombre: "María Pérez" },
+                { texto: "“La mejor experiencia educativa que he tenido. Totalmente recomendable.”", nombre: "José García" },
+                { texto: "“Estuve muy satisfecho con el curso, los contenidos son excelentes.”", nombre: "Ana Torres" }
+            ];
+
+            // Función para generar los testimonios dinámicamente
+            function populateCarousel() {
+                const itemsContainer = document.getElementById('carouselItemsContainer');
+                itemsContainer.innerHTML = '';  // Limpiar los items del carrusel
+
+                const itemsPerSlide = window.innerWidth < 768 ? 1 : 3;  // Mostrar 1 o 3 items según el tamaño de pantalla
+                const numSlides = Math.ceil(testimonios.length / itemsPerSlide);
+
+                // Crear slides dinámicamente
+                for (let i = 0; i < numSlides; i++) {
+                    const slideItems = testimonios.slice(i * itemsPerSlide, (i + 1) * itemsPerSlide);
+                    let slideHtml = `<div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                <div class="row d-flex align-items-center justify-content-center">`;
+
+                    slideItems.forEach(function (testimonio) {
+                        slideHtml += `<div class="col-12 col-md-${12 / itemsPerSlide}">
+                                <div class="card p-4">
+                                    <p>${testimonio.texto}</p>
+                                    <div class="subtitulo-testimonio">
+                                        <h3 class="mt-3"><b>${testimonio.nombre}</b></h3>
+                                        <span>Estudiante</span>
+                                    </div>
+                                </div>
+                              </div>`;
+                    });
+
+                    slideHtml += '</div></div>';
+                    itemsContainer.innerHTML += slideHtml;
+                }
+            }
+
+            // Llamar la función para inicializar el carrusel al cargar la página
+            populateCarousel();
+
+            // Volver a ajustar el carrusel cuando la ventana cambie de tamaño
+            window.addEventListener('resize', function () {
+                populateCarousel();
+            });
+        });
+
     </script>
 
 </body>
