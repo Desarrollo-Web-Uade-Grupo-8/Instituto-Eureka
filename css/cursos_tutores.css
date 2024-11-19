@@ -403,4 +403,8 @@ a:not([href]) {
     .select {
         width: 150px;
     }
+
+    .reserve-btn{
+        min-width: auto;
+    }
 }
