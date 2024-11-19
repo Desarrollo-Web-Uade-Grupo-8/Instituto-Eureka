@@ -5,7 +5,7 @@ body {
 
 h2 {
     font-size: 1.5rem;
-    color: #1d1d1f;
+    color: #112D4E;
 }
 
 .metodo-pago {
@@ -42,7 +42,7 @@ h2 {
     }
 }
 
-.container {
+.metodo-container {
     margin-bottom: 30px;
 }
 

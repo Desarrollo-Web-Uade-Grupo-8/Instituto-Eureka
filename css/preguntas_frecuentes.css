@@ -1,17 +1,18 @@
 h2 {
-    color: #0d6efd; 
+    color: #112D4E; 
 }
 
 .accordion-button {
     background-color: #f8f9fa;
-    color: #333;
+    color: #112D4E;
     font-weight: bold;
     border: none;
+    font-size: 20px;
 }
 
 .accordion-button:not(.collapsed) {
     background-color: #e3ecfb;
-    color: #333;
+    color: #112D4E;
 }
 
 .accordion-button:focus {
@@ -23,6 +24,17 @@ h2 {
 }
 
 .accordion-body {
-    color: #555;
+    color: #112D4E;
     background-color: #f8f9fa;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .accordion-button {
+        font-size: 15px;
+    }
+
+    .accordion-body {
+        font-size: 15px;
+    }
 }

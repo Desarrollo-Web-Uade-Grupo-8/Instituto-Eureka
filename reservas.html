@@ -20,50 +20,56 @@
                 <div class="clases-header">
                     <h2>Clases disponibles</h2>
                 </div>
-                <div class="clase-card" data-curso="Química" data-precio="3999">
+                <div class="clase-card" data-curso="Química" data-nivel="Primario" data-fecha="03/12/2024"
+                    data-horario="15 a 18 hs" data-precio="3999">
                     <p><strong>Curso:</strong> Química</p>
                     <p><strong>Nivel:</strong> Primario</p>
-                    <p><strong>Fecha:</strong> 12/11/2024</p>
+                    <p><strong>Fecha:</strong> 03/12/2024</p>
                     <p><strong>Horario:</strong> 15 a 18 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">3999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card" data-curso="Biología" data-precio="3999">
+                <div class="clase-card" data-curso="Biología" data-nivel="Secundario" data-fecha="03/12/2024"
+                    data-horario="14 a 16 hs" data-precio="3999">
                     <p><strong>Curso:</strong> Biología</p>
                     <p><strong>Nivel:</strong> Secundario</p>
-                    <p><strong>Fecha:</strong> 12/11/2024</p>
+                    <p><strong>Fecha:</strong> 03/12/2024</p>
                     <p><strong>Horario:</strong> 14 a 16 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">3999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card" data-curso="Matematica" data-precio="5799">
+                <div class="clase-card" data-curso="Matematica" data-nivel="Universitario" data-fecha="04/12/2024"
+                    data-horario="15 a 18 hs" data-precio="5799">
                     <p><strong>Curso:</strong> Matemática</p>
                     <p><strong>Nivel:</strong> Universitario</p>
-                    <p><strong>Fecha:</strong> 13/11/2024</p>
+                    <p><strong>Fecha:</strong> 04/12/2024</p>
                     <p><strong>Horario:</strong> 15 a 18 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">5799</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card" data-curso="Algebra" data-precio="4999">
+                <div class="clase-card" data-curso="Algebra" data-nivel="Secundario" data-fecha="09/12/2024"
+                    data-horario="10 a 12 hs" data-precio="4999">
                     <p><strong>Curso:</strong> Álgebra</p>
                     <p><strong>Nivel:</strong> Secundario</p>
-                    <p><strong>Fecha:</strong> 18/11/2024</p>
+                    <p><strong>Fecha:</strong> 09/12/2024</p>
                     <p><strong>Horario:</strong> 10 a 12 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">4999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card" data-curso="Fisica" data-precio="6499">
+                <div class="clase-card" data-curso="Fisica" data-nivel="Universitario" data-fecha="10/12/2024"
+                    data-horario="18 a 20 hs" data-precio="6499">
                     <p><strong>Curso:</strong> Física</p>
                     <p><strong>Nivel:</strong> Universitario</p>
-                    <p><strong>Fecha:</strong> 19/11/2024</p>
+                    <p><strong>Fecha:</strong> 10/12/2024</p>
                     <p><strong>Horario:</strong> 18 a 20 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">6499</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card" data-curso="Ingles" data-precio="4999">
+                <div class="clase-card" data-curso="Ingles" data-nivel="C1" data-fecha="13/12/2024"
+                    data-horario="14 a 18 hs" data-precio="4999">
                     <p><strong>Curso:</strong> Inglés</p>
                     <p><strong>Nivel:</strong> C1</p>
-                    <p><strong>Fecha:</strong> 22/11/2024</p>
+                    <p><strong>Fecha:</strong> 13/12/2024</p>
                     <p><strong>Horario:</strong> 14 a 18 hs.</p>
                     <p><strong>Precio de la clase:</strong> <span id="modal-total">4999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
@@ -215,6 +221,7 @@
                     </div>
                 </div>
             </div>
+            <div id="toast-container"></div>
         </section>
     </main>
     <div id="footer"></div>
@@ -237,18 +244,26 @@
             // Selecciona todos los botones de "Reservar"
             const reservarBtns = document.querySelectorAll(".reservar-btn");
             const modal = document.getElementById("userModal");
-            const totalDisplay = document.getElementById("modal-total");
             const closePaymentModal = document.getElementById("closePaymentModal");
             const paymentModal = document.getElementById("paymentModal");
             const finalizeReservation = document.getElementById("finalizeReservation");
             const continueToPayment = document.getElementById("continueToPayment");
+            let selectedCourseData = {};
 
             // Agrega un evento de clic a cada botón
             reservarBtns.forEach(btn => {
-                btn.addEventListener("click", (e) => {                    
+                btn.addEventListener("click", (e) => {
                     const card = e.target.closest(".clase-card"); // Encuentra la clase-card asociada                   
                     const precio = card.dataset.precio;
 
+                    selectedCourseData = {
+                        nombre: card.dataset.curso,
+                        nivel: card.dataset.nivel,
+                        fecha: card.dataset.fecha,
+                        horario: card.dataset.horario,
+                        precio: card.dataset.precio
+                    };
+                    console.log(card.dataset.curso);
                     selectedPrice = precio;
                     // Muestra el modal
                     modal.style.display = "block";
@@ -344,8 +359,57 @@
                         location.reload();
                     }, 3000);
                 }, 3000);
+                const reserva = {
+                    estudiante: { nombre: name, apellido: surname, email, telefono: phone },
+                    curso: selectedCourseData,
+                    fechaReserva: new Date().toISOString()
+                };
+
+                const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+                reservas.push(reserva);
+                localStorage.setItem("reservas", JSON.stringify(reservas));
+
+
             });
         });
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+    reservas.forEach((reserva, index) => {
+        setTimeout(() => {
+            const toastContainer = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.classList.add("toast");
+
+            // Contenido del toast
+            toast.innerHTML = `
+                <span class="toast-message">
+                    Recordatorio ${index + 1}: Tienes reservado el curso "${reserva.curso.nombre}" el día ${reserva.curso.fecha} (${reserva.curso.horario}).
+                </span>
+                <button class="toast-close-btn">&times;</button>
+            `;
+
+            // Botón para cerrar el toast
+            const closeBtn = toast.querySelector(".toast-close-btn");
+            closeBtn.addEventListener("click", () => {
+                toast.classList.remove("show");
+                setTimeout(() => {
+                    toastContainer.removeChild(toast);
+                }, 500); // Espera que termine la animación antes de eliminarlo
+            });
+
+            // Agregar el toast al contenedor
+            toastContainer.appendChild(toast);
+
+            // Mostrar el toast con animación
+            setTimeout(() => {
+                toast.classList.add("show");
+            }, 10);
+
+        }, 10000); // Ajusta el tiempo si lo necesitas
+    });
+});
+
 
         cancelUserModal.addEventListener("click", () => {
             userModal.style.display = "none";

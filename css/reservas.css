@@ -10,7 +10,6 @@
 }
 
 .reservas h1 {
-    font-size: 2rem;
     color: #112D4E;
     margin-bottom: 20px;
 }
@@ -138,6 +137,52 @@ select {
     padding-top: 60px;
 }
 
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #3F72AF;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s, transform 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.toast-close-btn:hover {
+    color: #f44336; /* Rojo para el hover */
+}
+
+.toast-message {
+    flex-grow: 1;
+    margin-right: 10px; /* Espacio entre el mensaje y la cruz */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1200px) {
     .clases-disponibles {
@@ -147,7 +192,7 @@ select {
 
     .clase-card p {
         min-width: auto;
-        font-size: 13px;
+        font-size: 14px;
     }
 }
 
@@ -160,7 +205,7 @@ select {
 
     .clase-card p {
         min-width: auto;
-        font-size: 11px;
+        font-size: 13px;
     }
 }
 
