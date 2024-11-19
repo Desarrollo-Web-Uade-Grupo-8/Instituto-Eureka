@@ -20,41 +20,199 @@
                 <div class="clases-header">
                     <h2>Clases disponibles</h2>
                 </div>
-                <div class="clase-card">
-                    <p><strong>Curso:</strong> Química CBC</p>
+                <div class="clase-card" data-curso="Química" data-precio="3999">
+                    <p><strong>Curso:</strong> Química</p>
+                    <p><strong>Nivel:</strong> Primario</p>
                     <p><strong>Fecha:</strong> 12/11/2024</p>
                     <p><strong>Horario:</strong> 15 a 18 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">3999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card">
+                <div class="clase-card" data-curso="Biología" data-precio="3999">
                     <p><strong>Curso:</strong> Biología</p>
+                    <p><strong>Nivel:</strong> Secundario</p>
                     <p><strong>Fecha:</strong> 12/11/2024</p>
                     <p><strong>Horario:</strong> 14 a 16 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">3999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card">
+                <div class="clase-card" data-curso="Matematica" data-precio="5799">
                     <p><strong>Curso:</strong> Matemática</p>
+                    <p><strong>Nivel:</strong> Universitario</p>
                     <p><strong>Fecha:</strong> 13/11/2024</p>
                     <p><strong>Horario:</strong> 15 a 18 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">5799</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card">
+                <div class="clase-card" data-curso="Algebra" data-precio="4999">
                     <p><strong>Curso:</strong> Álgebra</p>
+                    <p><strong>Nivel:</strong> Secundario</p>
                     <p><strong>Fecha:</strong> 18/11/2024</p>
                     <p><strong>Horario:</strong> 10 a 12 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">4999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card">
+                <div class="clase-card" data-curso="Fisica" data-precio="6499">
                     <p><strong>Curso:</strong> Física</p>
+                    <p><strong>Nivel:</strong> Universitario</p>
                     <p><strong>Fecha:</strong> 19/11/2024</p>
                     <p><strong>Horario:</strong> 18 a 20 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">6499</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
                 </div>
-                <div class="clase-card">
-                    <p><strong>Curso:</strong> Inglés intermedio</p>
+                <div class="clase-card" data-curso="Ingles" data-precio="4999">
+                    <p><strong>Curso:</strong> Inglés</p>
+                    <p><strong>Nivel:</strong> C1</p>
                     <p><strong>Fecha:</strong> 22/11/2024</p>
                     <p><strong>Horario:</strong> 14 a 18 hs.</p>
+                    <p><strong>Precio de la clase:</strong> <span id="modal-total">4999</span> ARS</p>
                     <button class="reservar-btn">Reservar</button>
+                </div>
+
+                <div class="modal" id="userModal">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closeUserModal">&times;</span>
+                        <h2>Datos de Usuario</h2>
+                        <div class="position-relative m-4">
+                            <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <button type="button"
+                                class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill"
+                                style="width: 2rem; height:2rem;">1</button>
+                            <button type="button"
+                                class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill"
+                                style="width: 2rem; height:2rem;">2</button>
+                            <button type="button"
+                                class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"
+                                style="width: 2rem; height:2rem;">3</button>
+                        </div>
+                        <form id="userForm" class="mt-4">
+                            <div class="alert alert-danger" role="alert" id="error-message-user-data"
+                                style="display: none;"></div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" placeholder="Nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="surname" class="form-label">Apellido <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="surname" placeholder="Apellido" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce un email válido">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Teléfono <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Teléfono" required>
+                            </div>
+                            <div class="button-container d-flex align-items-center justify-content-center">
+                                <button type="button" class="btn btn-secondary" id="cancelUserModal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" id="continueToPayment">Continuar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal de Selección de Medio de Pago -->
+                <div class="modal" id="paymentModal">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closePaymentModal">&times;</span>
+                        <h2>Selecciona el Medio de Pago</h2>
+                        <div class="position-relative m-4">
+                            <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <button type="button"
+                                class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill"
+                                style="width: 2rem; height:2rem;">1</button>
+                            <button type="button"
+                                class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill"
+                                style="width: 2rem; height:2rem;">2</button>
+                            <button type="button"
+                                class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"
+                                style="width: 2rem; height:2rem;">3</button>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="error-message-patment" style="display: none;">
+                        </div>
+                        <select id="paymentMethod" onchange="showPaymentForm()" class="mt-4">
+                            <option value="">Selecciona un medio de pago</option>
+                            <option value="tarjeta">Tarjeta</option>
+                            <option value="transferencia">Transferencia</option>
+                            <option value="efectivo">Efectivo</option>
+                        </select>
+
+                        <!-- Formulario de Tarjeta -->
+                        <div id="cardForm" style="display:none;">
+                            <div class="mb-3 cardType">
+                                <label for="cardType">Tipo de Tarjeta:</label>
+                                <select id="cardType">
+                                    <option value="visa">Visa</option>
+                                    <option value="mastercard">Mastercard</option>
+                                    <option value="amex">American Express</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cardNumber" class="form-label">Número de Tarjeta:<span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="cardNumber"
+                                    placeholder="Número de tarjeta" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="securityCode" class="form-label">Código de Seguridad:<span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="securityCode"
+                                    placeholder="Código de Seguridad" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="expirationDate" class="form-label">Fecha de Vencimiento:<span
+                                        class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="expirationDate"
+                                    placeholder="Fecha de Vencimiento" required>
+                            </div>
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="totalToPay" class="form-label" style="margin-right: 8px;">Total a
+                                    abonar:</label>
+                                <div id="total"></div>
+                            </div>
+                        </div>
+
+                        <!-- Mensajes para Transferencia y Efectivo -->
+                        <div id="paymentMessage" style="display:none; margin-top: 15px;">
+                            <div class="alert alert-info" role="alert">
+                                *Recibirás un email con los datos para realizar el pago.
+                            </div>
+                        </div>
+
+                        <div class="button-container d-flex align-items-center justify-content-center">
+                            <button type="button" class="btn btn-secondary" id="goBackToUser">Volver Atrás</button>
+                            <button type="button" class="btn btn-primary" id="finalizeReservation">Abonar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spinner -->
+                <div class="modal" id="spinnerModal">
+                    <div class="modal-content d-flex justify-content-center align-items-center">
+                        <h2>Procesando pago</h2>
+                        <div class="spinner-border text-primary mt-4" role="status" id="spinner">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal" id="successPaymentModal">
+                    <div class="modal-content">
+                        <div class="alert alert-success" role="alert">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -64,15 +222,159 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        const courseCosts = {
+            "Matemáticas": 5799,
+            "Inglés": 4999,
+            "Física": 6499,
+            "Química": 3999,
+            "Álgebra": 4999,
+            "Biología": 3999
+        };
+
+        let selectedPrice = 0;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Selecciona todos los botones de "Reservar"
+            const reservarBtns = document.querySelectorAll(".reservar-btn");
+            const modal = document.getElementById("userModal");
+            const totalDisplay = document.getElementById("modal-total");
+            const closePaymentModal = document.getElementById("closePaymentModal");
+            const paymentModal = document.getElementById("paymentModal");
+            const finalizeReservation = document.getElementById("finalizeReservation");
+            const continueToPayment = document.getElementById("continueToPayment");
+
+            // Agrega un evento de clic a cada botón
+            reservarBtns.forEach(btn => {
+                btn.addEventListener("click", (e) => {                    
+                    const card = e.target.closest(".clase-card"); // Encuentra la clase-card asociada                   
+                    const precio = card.dataset.precio;
+
+                    selectedPrice = precio;
+                    // Muestra el modal
+                    modal.style.display = "block";
+                });
+            });
+
+            // Cierra el modal al hacer clic en el botón cerrar
+            const closeModal = document.getElementById("closeUserModal");
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Cierra el modal al hacer clic fuera de la ventana modal
+            window.addEventListener("click", (e) => {
+                if (e.target === modal || e.target === paymentModal) {
+                    modal.style.display = "none";
+                    paymentModal.style.display = "none";
+                }
+            });
+
+            continueToPayment.addEventListener("click", (event) => {
+                event.preventDefault()
+                const name = document.getElementById("name").value.trim();
+                const surname = document.getElementById("surname").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phoneRegex = /^[0-9]{8,15}$/; // Acepta números de 8 a 15 dígitos
+                const errorBlock = document.getElementById("error-message-user-data")
+
+
+                if (!name || !email || !phone || !surname) {
+                    errorBlock.textContent = "Por favor, todos los campos deben estar completos para continuar.";
+                    errorBlock.style.display = "block";
+                    return false; // No continuar
+                }
+                if (!emailRegex.test(email)) {
+                    errorBlock.textContent = "Por favor, ingrese un email valido.";
+                    errorBlock.style.display = "block";
+                    return false; // No continuar
+                }
+
+                if (!phoneRegex.test(phone)) {
+                    errorBlock.textContent = "Por favor, ingrese un teléfono valido.";
+                    errorBlock.style.display = "block";
+                    return false; // No continuar
+                }
+
+
+                errorBlock.style.display = "none";
+                userModal.style.display = "none";
+                paymentModal.style.display = "block";
+                total.textContent = "$" + selectedPrice;
+            })
+
+            finalizeReservation.addEventListener("click", (event) => {
+                event.preventDefault()
+                const cardNumber = document.getElementById("cardNumber").value.trim();
+                const cardCode = document.getElementById("securityCode").value.trim();
+                const expirationDate = document.getElementById("expirationDate").value.trim();
+                const errorBlockPayment = document.getElementById("error-message-patment");
+                const paymentMethod = document.getElementById("paymentMethod").value;
+                const spinner = document.getElementById("spinnerModal");
+                const successMessage = document.getElementById("successPaymentModal");
+
+
+                if (!paymentMethod) {
+                    errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
+                    errorBlockPayment.style.display = "block";
+                    return false;
+                }
+                if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode || !expirationDate)) {
+                    errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
+                    errorBlockPayment.style.display = "block";
+                    return false;
+                }
+
+                errorBlockPayment.style.display = "none";
+                paymentModal.style.display = "none";
+                spinner.style.display = "block";
+                setTimeout(() => {
+                    spinner.style.display = "none";
+
+                    successMessage.style.display = "block";
+                    successMessage.innerHTML = `
+                    <div class="alert alert-success" role="alert">
+                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito." : "Email enviado con éxito."}
+                    </div>
+                `;
+                    // Ocultar el mensaje después de 3 segundos
+                    setTimeout(() => {
+                        successMessage.style.display = "none";
+                        location.reload();
+                    }, 3000);
+                }, 3000);
+            });
+        });
+
+        cancelUserModal.addEventListener("click", () => {
+            userModal.style.display = "none";
+        });
+
+        closePaymentModal.addEventListener("click", () => {
+            paymentModal.style.display = "none";
+        });
+
+        function showPaymentForm() {
+            const method = paymentMethod.value;
+            cardForm.style.display = (method === "tarjeta") ? "block" : "none";
+            paymentMessage.style.display = (method === "transferencia" || method === "efectivo") ? "block" : "none";
+        }
+
+        goBackToUser.addEventListener("click", () => {
+            paymentModal.style.display = "none";
+            userModal.style.display = "block";
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('navbar').innerHTML = data;
-    
+
                     const path = window.location.pathname;
                     const page = path.split("/").pop();
-                    
+
                     const pageLinks = {
                         "index.html": "link-inicio",
                         "cursos_y_tutores.html": "link-cursos",
@@ -83,17 +385,17 @@
                         "contacto.html": "link-contacto",
                         "metodo_pago.html": "link-metodo"
                     };
-                        if (pageLinks[page]) {
+                    if (pageLinks[page]) {
                         document.getElementById(pageLinks[page]).classList.add("active");
                     }
                 });
-    
+
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => document.getElementById('footer').innerHTML = data);
         });
     </script>
-    
+
 </body>
 
 

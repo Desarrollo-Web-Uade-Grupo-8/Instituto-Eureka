@@ -517,10 +517,26 @@
             const surname = document.getElementById("surname").value.trim();
             const email = document.getElementById("email").value.trim();
             const phone = document.getElementById("phone").value.trim();
-
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[0-9]{8,15}$/; // Acepta números de 8 a 15 dígitos
             const errorBlock = document.getElementById("error-message-user-data")
+            let isValid = true;
+
             if (!name || !email || !phone || !surname) {
                 errorBlock.textContent = "Por favor, todos los campos deben estar completos para continuar.";
+                errorBlock.style.display = "block";
+                return false; // No continuar
+            }
+            if (!emailRegex.test(email)) {
+                isValid = false;
+                errorBlock.textContent = "Por favor, ingrese un email valido.";
+                errorBlock.style.display = "block";
+                return false; // No continuar
+            }
+
+            if (!phoneRegex.test(phone)) {
+                isValid = false;
+                errorBlock.textContent = "Por favor, ingrese un teléfono valido.";
                 errorBlock.style.display = "block";
                 return false; // No continuar
             }
