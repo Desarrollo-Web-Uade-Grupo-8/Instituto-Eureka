@@ -8,13 +8,23 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .servicios img {
-        margin-top: 40px;
+        width: 140px;
+        height: 140px;
+    }
+  }
+
+
+@media (max-width: 768px) {
+    .negrita {
+        padding-bottom: 20px;
     }
 
-    .negrita {
-        margin: 40px;
+    .servicios img {
+        width: 150px;
+        height: 150px;
+        padding-top: 20px;
     }
 
   }

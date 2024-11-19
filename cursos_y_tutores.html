@@ -603,7 +603,6 @@
 
             errorBlockPayment.style.display = "none";
             paymentModal.style.display = "none";
-            //spinner.classList.add("show");
             spinner.style.display = "block";
             setTimeout(() => {
                 spinner.style.display = "none";
@@ -611,10 +610,9 @@
                 successMessage.style.display = "block";
                 successMessage.innerHTML = `
                     <div class="alert alert-success" role="alert">
-                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito." : "Email enviado con éxito."}
+                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito. Recibirás un mail con la información de tu reserva." : "Email enviado con éxito."}
                     </div>
                 `;
-                // Ocultar el mensaje después de 3 segundos
                 setTimeout(() => {
                     successMessage.style.display = "none";
                     location.reload();
@@ -622,7 +620,6 @@
             }, 3000);
         });
 
-        // Cerrar la ventana de selección de pago
         closePaymentModal.addEventListener("click", () => {
             paymentModal.style.display = "none";
         });
@@ -662,32 +659,38 @@
             const errorMessage = document.getElementById("error-message");
             errorMessage.style.display = "none";
             row.innerHTML = `
+                    
+                    <div>
                     <label>Curso:</label>
                     <select class="select course-select">
                         ${Object.keys(courseCosts).map(course => `<option>${course}</option>`).join("")}
                     </select>
+                    </div>
+                    <div>
                     <label>Nivel:</label>
                     <select class="select level-select">
                         ${niveles.map(nivel => `<option>${nivel}</option>`).join("")}
                     </select>
+                    </div>
+                    <div>
                     <label>Fecha:</label>
                     <select class="select date-select"></select>
+                    </div>
+                    <div>
                     <label>Valor:</label>
                     <div class="value">$${courseCosts["Matemáticas"]}</div>
+                    </div>
                     <button class="delete-btn">X</button>
                 `;
 
-            // Ahora definimos los elementos del DOM después de haber asignado el HTML
             const courseSelect = row.querySelector(".course-select");
             const levelSelect = row.querySelector(".level-select");
             const dateDisplay = row.querySelector(".date-select");
             const valueDisplay = row.querySelector(".value");
 
-            // Inicializar el selector de fechas basándose en el curso predeterminado
             const selectedCourse = courseSelect.value;
             dateDisplay.innerHTML = (courseDates[selectedCourse] || []).map(date => `<option>${date}</option>`).join("");
 
-            // Añadir comportamiento al selector de curso
             courseSelect.addEventListener("change", () => {
                 const selectedCourse = courseSelect.value;
                 levelSelect.innerHTML = selectedCourse === "Inglés" ?
@@ -699,7 +702,6 @@
                 updateTotalCost();
             });
 
-            // Añadir funcionalidad al botón de eliminar
             const deleteBtn = row.querySelector(".delete-btn");
             deleteBtn.addEventListener("click", () => {
                 row.remove();
@@ -707,7 +709,7 @@
             });
 
             courseContainer.appendChild(row);
-            updateTotalCost(); // Actualizar el total cuando se añade un curso
+            updateTotalCost(); 
         }
 
 
@@ -728,9 +730,9 @@
             if (courseRows.length === 0) {
                 errorMessage.textContent = "Por favor, agregue al menos un curso para continuar.";
                 errorMessage.style.display = "block";
-                return false; // Impedir que el usuario continúe
+                return false; 
             }
-            return true; // Permitir que el usuario continúe
+            return true; 
         }
 
         document.addEventListener("click", function (event) {
@@ -748,23 +750,23 @@
             const cards = document.querySelectorAll('.col-md-4');
 
             let scrollAmount = 0;
-            const cardWidth = cards[0].offsetWidth + 10; // Ancho de la tarjeta + espacio
+            const cardWidth = cards[0].offsetWidth + 10; 
             let maxScroll = row.scrollWidth - row.offsetWidth;
 
-            // Redimensionar: actualizar los valores
+            
             window.addEventListener('resize', () => {
                 scrollAmount = 0;
                 row.scrollLeft = 0;
                 maxScroll = row.scrollWidth - row.offsetWidth;
             });
 
-            // Flecha izquierda
+            
             leftArrow.addEventListener('click', () => {
                 scrollAmount = Math.max(scrollAmount - cardWidth, 0);
                 row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
             });
 
-            // Flecha derecha
+           
             rightArrow.addEventListener('click', () => {
                 scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll);
                 row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
@@ -774,7 +776,7 @@
 
 
         document.addEventListener('DOMContentLoaded', function () {
-            // Lista de testimonios
+            
             const testimonios = [
                 { texto: "“Realicé el curso de inglés con la profe Alice y la verdad que es una genia.”", nombre: "Lautaro Mendoza" },
                 { texto: "“Los super recomiendo! Las clases con Julio son las mejores.”", nombre: "Juana López" },
@@ -784,15 +786,15 @@
                 { texto: "“Estuve muy satisfecho con el curso, los contenidos son excelentes.”", nombre: "Ana Torres" }
             ];
 
-            // Función para generar los testimonios dinámicamente
+            
             function populateCarousel() {
                 const itemsContainer = document.getElementById('carouselItemsContainer');
-                itemsContainer.innerHTML = '';  // Limpiar los items del carrusel
+                itemsContainer.innerHTML = ''; 
 
-                const itemsPerSlide = window.innerWidth < 768 ? 1 : 3;  // Mostrar 1 o 3 items según el tamaño de pantalla
+                const itemsPerSlide = window.innerWidth < 768 ? 1 : 3; 
                 const numSlides = Math.ceil(testimonios.length / itemsPerSlide);
 
-                // Crear slides dinámicamente
+               
                 for (let i = 0; i < numSlides; i++) {
                     const slideItems = testimonios.slice(i * itemsPerSlide, (i + 1) * itemsPerSlide);
                     let slideHtml = `<div class="carousel-item ${i === 0 ? 'active' : ''}">
@@ -815,10 +817,8 @@
                 }
             }
 
-            // Llamar la función para inicializar el carrusel al cargar la página
             populateCarousel();
 
-            // Volver a ajustar el carrusel cuando la ventana cambie de tamaño
             window.addEventListener('resize', function () {
                 populateCarousel();
             });

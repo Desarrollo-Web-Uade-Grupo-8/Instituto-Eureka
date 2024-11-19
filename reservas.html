@@ -241,7 +241,7 @@
         let selectedPrice = 0;
 
         document.addEventListener("DOMContentLoaded", () => {
-            // Selecciona todos los botones de "Reservar"
+
             const reservarBtns = document.querySelectorAll(".reservar-btn");
             const modal = document.getElementById("userModal");
             const closePaymentModal = document.getElementById("closePaymentModal");
@@ -250,10 +250,10 @@
             const continueToPayment = document.getElementById("continueToPayment");
             let selectedCourseData = {};
 
-            // Agrega un evento de clic a cada botón
+
             reservarBtns.forEach(btn => {
                 btn.addEventListener("click", (e) => {
-                    const card = e.target.closest(".clase-card"); // Encuentra la clase-card asociada                   
+                    const card = e.target.closest(".clase-card");
                     const precio = card.dataset.precio;
 
                     selectedCourseData = {
@@ -265,18 +265,17 @@
                     };
                     console.log(card.dataset.curso);
                     selectedPrice = precio;
-                    // Muestra el modal
                     modal.style.display = "block";
                 });
             });
 
-            // Cierra el modal al hacer clic en el botón cerrar
+
             const closeModal = document.getElementById("closeUserModal");
             closeModal.addEventListener("click", () => {
                 modal.style.display = "none";
             });
 
-            // Cierra el modal al hacer clic fuera de la ventana modal
+
             window.addEventListener("click", (e) => {
                 if (e.target === modal || e.target === paymentModal) {
                     modal.style.display = "none";
@@ -291,25 +290,25 @@
                 const email = document.getElementById("email").value.trim();
                 const phone = document.getElementById("phone").value.trim();
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const phoneRegex = /^[0-9]{8,15}$/; // Acepta números de 8 a 15 dígitos
+                const phoneRegex = /^[0-9]{8,15}$/;
                 const errorBlock = document.getElementById("error-message-user-data")
 
 
                 if (!name || !email || !phone || !surname) {
                     errorBlock.textContent = "Por favor, todos los campos deben estar completos para continuar.";
                     errorBlock.style.display = "block";
-                    return false; // No continuar
+                    return false;
                 }
                 if (!emailRegex.test(email)) {
                     errorBlock.textContent = "Por favor, ingrese un email valido.";
                     errorBlock.style.display = "block";
-                    return false; // No continuar
+                    return false;
                 }
 
                 if (!phoneRegex.test(phone)) {
                     errorBlock.textContent = "Por favor, ingrese un teléfono valido.";
                     errorBlock.style.display = "block";
-                    return false; // No continuar
+                    return false;
                 }
 
 
@@ -350,10 +349,9 @@
                     successMessage.style.display = "block";
                     successMessage.innerHTML = `
                     <div class="alert alert-success" role="alert">
-                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito." : "Email enviado con éxito."}
+                        ${paymentMethod === "tarjeta" ? "Pago realizado con éxito. Recibirás un mail con la información de tu reserva." : "Email enviado con éxito."}
                     </div>
                 `;
-                    // Ocultar el mensaje después de 3 segundos
                     setTimeout(() => {
                         successMessage.style.display = "none";
                         location.reload();
@@ -374,41 +372,34 @@
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-    const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
-    reservas.forEach((reserva, index) => {
-        setTimeout(() => {
-            const toastContainer = document.getElementById("toast-container");
-            const toast = document.createElement("div");
-            toast.classList.add("toast");
-
-            // Contenido del toast
-            toast.innerHTML = `
+            const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+            reservas.forEach((reserva, index) => {
+                setTimeout(() => {
+                    const toastContainer = document.getElementById("toast-container");
+                    const toast = document.createElement("div");
+                    toast.classList.add("toast");
+                    toast.innerHTML = `
                 <span class="toast-message">
                     Recordatorio ${index + 1}: Tienes reservado el curso "${reserva.curso.nombre}" el día ${reserva.curso.fecha} (${reserva.curso.horario}).
                 </span>
                 <button class="toast-close-btn">&times;</button>
             `;
 
-            // Botón para cerrar el toast
-            const closeBtn = toast.querySelector(".toast-close-btn");
-            closeBtn.addEventListener("click", () => {
-                toast.classList.remove("show");
-                setTimeout(() => {
-                    toastContainer.removeChild(toast);
-                }, 500); // Espera que termine la animación antes de eliminarlo
+                    const closeBtn = toast.querySelector(".toast-close-btn");
+                    closeBtn.addEventListener("click", () => {
+                        toast.classList.remove("show");
+                        setTimeout(() => {
+                            toastContainer.removeChild(toast);
+                        }, 500);
+                    });
+                    toastContainer.appendChild(toast);
+                    setTimeout(() => {
+                        toast.classList.add("show");
+                    }, 10);
+
+                }, 10000);
             });
-
-            // Agregar el toast al contenedor
-            toastContainer.appendChild(toast);
-
-            // Mostrar el toast con animación
-            setTimeout(() => {
-                toast.classList.add("show");
-            }, 10);
-
-        }, 10000); // Ajusta el tiempo si lo necesitas
-    });
-});
+        });
 
 
         cancelUserModal.addEventListener("click", () => {

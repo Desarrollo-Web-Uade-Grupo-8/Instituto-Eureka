@@ -127,13 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".form");
   const comentariosContainer = document.querySelector(".container-comentarios");
   const filtroTema = document.getElementById("filtro-tema");
-  const mensajeVacio = document.createElement("div"); // Mensaje de 'sin comentarios'
+  const mensajeVacio = document.createElement("div");
   mensajeVacio.classList.add("mensaje-vacio");
   mensajeVacio.textContent = "Aún no hay ningún comentario en esta sección.";
-  comentariosContainer.appendChild(mensajeVacio); // Inicialmente muestra el mensaje vacío
-  mensajeVacio.style.display = "none"; // Escondemos el mensaje inicialmente
+  comentariosContainer.appendChild(mensajeVacio); 
+  mensajeVacio.style.display = "none"; 
 
-  // Cargar los comentarios almacenados en localStorage
   cargarComentarios();
 
   form.addEventListener("submit", function (event) {
@@ -153,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         second: "2-digit",
       });
 
-      // Crear el nuevo comentario en HTML
       const comentarioHTML = `
         <div class="card mb-3" style="border: none;" data-tema="${tema}">
           <div class="card-body">
@@ -167,35 +165,26 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       `;
 
-      // Insertar el comentario en el contenedor
       comentariosContainer.insertAdjacentHTML("beforeend", comentarioHTML);
 
-      // Crear el mensaje de éxito y añadirlo debajo del comentario
       const mensajeExito = document.createElement("div");
       mensajeExito.classList.add("mensaje-exito");
       mensajeExito.textContent = "Comentario publicado con éxito!";
       comentariosContainer.insertAdjacentElement("beforeend", mensajeExito);
 
-      // Limpiar el formulario
       form.reset();
 
-      // Mostrar el mensaje de éxito por 3 segundos
       setTimeout(() => {
         mensajeExito.style.display = "none";
-      }, 3000); // El mensaje desaparece después de 3 segundos
+      }, 3000); 
 
-      // Almacenar el nuevo comentario en el almacenamiento local
       guardarComentarioEnLocalStorage(nombre, comentario, tema, fechaFormateada);
 
-      // Comprobar si el filtro está en "Todos", en ese caso no cambiar el filtro
       if (filtroTema.value !== "Todos") {
-        // Cambiar el filtro al tema del nuevo comentario si no está en "Todos"
         filtroTema.value = tema;
-              // Aplicar el filtro con el nuevo valor
       aplicarFiltro(tema);
 
       }
-      // Comprobar si el nuevo comentario es visible y desplazarse hasta él si es necesario
       const comentarioNuevo = comentariosContainer.lastElementChild;
       if (comentarioNuevo && comentarioNuevo.style.display !== "none") {
         comentarioNuevo.scrollIntoView({ behavior: "smooth", block: "start" });

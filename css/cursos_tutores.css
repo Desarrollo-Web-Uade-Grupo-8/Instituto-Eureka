@@ -84,6 +84,7 @@ select {
     align-items: center;
     gap: 40px;
     margin-bottom: 15px;
+    justify-content: center;
 }
 
 .select {
@@ -112,6 +113,7 @@ select {
     font-size: 18px;
     cursor: pointer;
     transition-duration: 100ms;
+    margin-bottom: 8px;
 }
 
 .add-course-btn {
@@ -281,11 +283,9 @@ a:not([href]) {
 .button-container {
     display: flex;
     justify-content: center;
-    /* Centra los botones horizontalmente */
     gap: 10px;
-    /* Espacio entre los botones */
     margin-top: 20px;
-    /* Espacio por encima de los botones */
+
 }
 
 
@@ -349,4 +349,58 @@ a:not([href]) {
         min-height: 300px;
     }
 
+}
+
+
+
+@media (max-width: 1200px) {
+    .select {
+        width: 150px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .select {
+        width: 120px;
+    }
+    .course-row{
+        gap: 10px
+    }
+    .delete-btn{
+        margin-bottom: 4px;
+    }
+}
+
+@media (max-width: 780px) {
+    .select {
+        width: 100px;
+    }
+
+    .course-row{
+        gap: 30px;
+        flex-wrap: nowrap;
+    }
+}
+@media (max-width: 700px) {
+
+    .course-row{
+        gap: 20px;
+        flex-wrap: nowrap;
+    }
+    .delete-btn{
+        margin-bottom: 2px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .course-row{
+        gap: 20px;
+        flex-direction: column;
+    }
+    .select {
+        width: 150px;
+    }
 }
