@@ -329,12 +329,23 @@
                 const successMessage = document.getElementById("successPaymentModal");
 
 
+                const expirationDateObject = new Date(expirationDate);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
                 if (!paymentMethod) {
                     errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
                     errorBlockPayment.style.display = "block";
                     return false;
                 }
-                if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode || !expirationDate)) {
+
+                if (paymentMethod === "tarjeta" && (!expirationDate || expirationDateObject < today)) {
+                    errorBlockPayment.textContent = "Por favor, ingrese una fecha válida.";
+                    errorBlockPayment.style.display = "block";
+                    return false;
+                }
+
+                if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode)) {
                     errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
                     errorBlockPayment.style.display = "block";
                     return false;

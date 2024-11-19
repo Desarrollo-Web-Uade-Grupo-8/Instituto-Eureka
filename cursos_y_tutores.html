@@ -590,12 +590,23 @@
             const errorBlockPayment = document.getElementById("error-message-patment");
             const paymentMethod = document.getElementById("paymentMethod").value;
 
+            const expirationDateObject = new Date(expirationDate);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
             if (!paymentMethod) {
                 errorBlockPayment.textContent = "Por favor, selecccione un metodo de pago.";
                 errorBlockPayment.style.display = "block";
                 return false;
             }
-            if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode || !expirationDate)) {
+
+            if (paymentMethod === "tarjeta" && (!expirationDate || expirationDateObject < today)) {
+                errorBlockPayment.textContent = "Por favor, ingrese una fecha válida.";
+                errorBlockPayment.style.display = "block";
+                return false;
+            }
+
+            if (paymentMethod === "tarjeta" && (!cardNumber || !cardCode)) {
                 errorBlockPayment.textContent = "Por favor, complete todos los datos de tarjeta.";
                 errorBlockPayment.style.display = "block";
                 return false;
@@ -730,9 +741,9 @@
             if (courseRows.length === 0) {
                 errorMessage.textContent = "Por favor, agregue al menos un curso para continuar.";
                 errorMessage.style.display = "block";
-                return false; 
+                return false;
             }
-            return true; 
+            return true;
         }
 
         document.addEventListener("click", function (event) {
@@ -750,23 +761,23 @@
             const cards = document.querySelectorAll('.col-md-4');
 
             let scrollAmount = 0;
-            const cardWidth = cards[0].offsetWidth + 10; 
+            const cardWidth = cards[0].offsetWidth + 10;
             let maxScroll = row.scrollWidth - row.offsetWidth;
 
-            
+
             window.addEventListener('resize', () => {
                 scrollAmount = 0;
                 row.scrollLeft = 0;
                 maxScroll = row.scrollWidth - row.offsetWidth;
             });
 
-            
+
             leftArrow.addEventListener('click', () => {
                 scrollAmount = Math.max(scrollAmount - cardWidth, 0);
                 row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
             });
 
-           
+
             rightArrow.addEventListener('click', () => {
                 scrollAmount = Math.min(scrollAmount + cardWidth, maxScroll);
                 row.scrollTo({ left: scrollAmount, behavior: 'smooth' });
@@ -776,7 +787,7 @@
 
 
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             const testimonios = [
                 { texto: "“Realicé el curso de inglés con la profe Alice y la verdad que es una genia.”", nombre: "Lautaro Mendoza" },
                 { texto: "“Los super recomiendo! Las clases con Julio son las mejores.”", nombre: "Juana López" },
@@ -786,15 +797,15 @@
                 { texto: "“Estuve muy satisfecho con el curso, los contenidos son excelentes.”", nombre: "Ana Torres" }
             ];
 
-            
+
             function populateCarousel() {
                 const itemsContainer = document.getElementById('carouselItemsContainer');
-                itemsContainer.innerHTML = ''; 
+                itemsContainer.innerHTML = '';
 
-                const itemsPerSlide = window.innerWidth < 768 ? 1 : 3; 
+                const itemsPerSlide = window.innerWidth < 768 ? 1 : 3;
                 const numSlides = Math.ceil(testimonios.length / itemsPerSlide);
 
-               
+
                 for (let i = 0; i < numSlides; i++) {
                     const slideItems = testimonios.slice(i * itemsPerSlide, (i + 1) * itemsPerSlide);
                     let slideHtml = `<div class="carousel-item ${i === 0 ? 'active' : ''}">
